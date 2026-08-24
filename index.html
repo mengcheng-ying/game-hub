@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="怀旧游戏整合站 — 收录龙之谷启程、墨香情、星辰变、神泣、飞飞、千年盛世、永恒岛、荣耀出征等经典端游正版手游，提供游戏下载导航、攻略资讯、热门排行。">
+  <meta name="keywords" content="怀旧游戏,经典手游,龙之谷启程,墨香情,星辰变,神泣,飞飞,千年盛世,永恒岛,荣耀出征,传奇手游,奇迹MU,RO仙境传说,热江,游戏下载,游戏攻略,游戏排行">
+  <meta name="author" content="GAMEHUB">
+  <meta name="theme-color" content="#0a0f1a">
+  <meta name="baidu-site-verification" content="codeva-xxxxxxxx">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="always">
+  <meta property="og:title" content="怀旧游戏整合站 - 经典端游正版手游下载导航">
+  <meta property="og:description" content="收录龙之谷启程、墨香情、星辰变、神泣等经典端游正版手游，提供游戏下载导航、攻略资讯、热门排行。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:site_name" content="怀旧游戏整合站">
+  <meta property="og:image" content="https://example.com/assets/images/og-image.jpg">
+  <title>怀旧游戏整合站 - 经典端游正版手游下载导航 | 攻略 | 排行</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%2300d4ff'/><text x='50' y='68' text-anchor='middle' font-size='52'>🎮</text></svg>">
+</head>
+<body>
+  <!-- 星空背景 -->
+  <canvas id="starfield"></canvas>
+
+  <!-- 主应用 -->
+  <div id="app">
+    <!-- 导航栏 -->
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <a href="#home" class="nav-logo">
+          <span class="logo-icon">🎮</span>
+          <span>GAMEHUB</span>
+        </a>
+        <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="菜单">☰ 菜单</button>
+        <ul class="nav-links">
+          <li><a href="#home" data-route="home" class="active">首页</a></li>
+          <li><a href="#games" data-route="games">游戏大厅</a></li>
+          <li><a href="#guides" data-route="guides">游戏攻略</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- 页面容器 -->
+    <main>
+      <div class="page" id="page-home"></div>
+      <div class="page" id="page-games"></div>
+      <div class="page" id="page-game-detail"></div>
+      <div class="page" id="page-guides"></div>
+      <div class="page" id="page-guide-detail"></div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-icon">🎮</span>
+          <span>GAMEHUB 游戏整合站</span>
+        </div>
+        <div class="footer-links">
+          <a href="#home">首页</a>
+          <a href="#games">游戏大厅</a>
+          <a href="#guides">游戏攻略</a>
+        </div>
+        <div class="footer-copy">© 2024 GAMEHUB. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- 数据文件 -->
+  <script src="data/games.js"></script>
+  <script src="data/articles.js"></script>
+  <!-- 主逻辑 -->
+  <script src="js/main.js"></script>
+</body>
+</html>
