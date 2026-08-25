@@ -219,31 +219,6 @@ function renderHome() {
   const hotGames = GAMES_DATA.filter(g => g.rating >= 4).slice(0, 6);
 
   page.innerHTML = `
-    <section class="hero">
-      <h1 class="hero-title">游戏整合站</h1>
-      <p class="hero-subtitle">发现、下载、畅玩 —— 你的游戏资源中心</p>
-      <div class="hero-actions">
-        <button class="btn-primary" onclick="navigate('games')">🎮 浏览游戏</button>
-      </div>
-    </section>
-
-    <div style="margin-bottom: 14px;">
-      <h2 class="section-title">快速入口</h2>
-      <p class="section-subtitle">选择你的目的地</p>
-    </div>
-    <div class="quick-access">
-      <div class="quick-card" onclick="navigate('games')">
-        <span class="quick-card-icon">🎮</span>
-        <h3 class="quick-card-title">游戏大厅</h3>
-        <p class="quick-card-desc">${GAMES_DATA.length}+ 款经典游戏</p>
-      </div>
-      <div class="quick-card" onclick="navigate('guides')">
-        <span class="quick-card-icon">📖</span>
-        <h3 class="quick-card-title">游戏攻略</h3>
-        <p class="quick-card-desc">通关秘籍 · 技巧分享</p>
-      </div>
-    </div>
-
     <h2 class="section-title">热门推荐</h2>
     <p class="section-subtitle">玩家最爱的经典游戏</p>
     <div class="game-grid">
