@@ -95,6 +95,19 @@ function getBadgeClass(category) {
   return map[category] || 'badge-guide';
 }
 
+// ===== 文章数据合并（静态 + 本地存储） =====
+function getAllArticles() {
+  try {
+    const localArticles = JSON.parse(localStorage.getItem('gamehub_articles') || '[]');
+    const localIds = new Set(localArticles.map(a => a.id));
+    // 静态文章 + 本地文章，本地优先覆盖
+    const staticFiltered = ARTICLES_DATA.filter(a => !localIds.has(a.id));
+    return [...staticFiltered, ...localArticles];
+  } catch(e) {
+    return ARTICLES_DATA;
+  }
+}
+
 // ===== 路由管理 =====
 let currentGameId = null;
 let currentArticleId = null;
@@ -190,7 +203,7 @@ function updatePageTitle(route, id) {
   }
   else if (route === 'guides') { title = '攻略中心 - GAMEHUB'; desc = '热门游戏攻略 · 通关秘籍'; }
   else if (route === 'guide-detail' && id) {
-    const a = ARTICLES_DATA.find(x => x.id === id);
+    const a = getAllArticles().find(x => x.id === id);
     if (a) { title = a.title + ' - GAMEHUB'; desc = a.summary; }
   }
 
@@ -369,7 +382,7 @@ function renderGuides() {
     </div>
 
     <div class="article-list" id="article-list">
-      ${ARTICLES_DATA.map(a => {
+      ${getAllArticles().map(a => {
         const tags = [a.category];
         return `
           <div class="article-card" onclick="navigate('guide-detail', ${a.id})">
@@ -406,7 +419,7 @@ function handleArticleSearch(query) {
 // ===== 攻略详情 =====
 function renderGuideDetail(id) {
   const page = document.getElementById('page-guide-detail');
-  const article = ARTICLES_DATA.find(a => a.id === id);
+  const article = getAllArticles().find(a => a.id === id);
 
   if (!article) {
     page.innerHTML = `
@@ -416,7 +429,7 @@ function renderGuideDetail(id) {
     return;
   }
 
-  const moreArticles = ARTICLES_DATA.filter(a => a.id !== article.id).slice(0, 3);
+  const moreArticles = getAllArticles().filter(a => a.id !== article.id).slice(0, 3);
 
   page.innerHTML = `
     <button class="btn-back" onclick="navigate('guides')">← 返回攻略列表</button>
