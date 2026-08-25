@@ -154,7 +154,7 @@ const ARTICLES_DATA = [
     author: "GAMEHUB攻略组",
     date: "2026-08-10",
     category: "攻略",
-    cover: "assets/images/rongyao_cover.png",
+    cover: "assets/images/rongyao_cover.jpg",
     views: 22100
   },
   // ===== 千年盛世：千年传奇版 =====
