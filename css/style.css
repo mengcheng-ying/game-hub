@@ -258,15 +258,14 @@ main {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 8px;
-  padding-left: 14px;
-  border-left: 3px solid var(--accent);
+  text-align: center;
 }
 
 .section-subtitle {
   font-size: 0.9rem;
   color: var(--text-muted);
   margin-bottom: 28px;
-  padding-left: 17px;
+  text-align: center;
 }
 
 /* ===== Hero Section (Home) ===== */
@@ -500,6 +499,7 @@ main {
 /* ===== Search Bar ===== */
 .search-bar {
   display: flex;
+  justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
 }
