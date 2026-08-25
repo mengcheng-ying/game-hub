@@ -1,62 +1,7 @@
 /**
  * GAMEHUB 游戏整合站 - 主逻辑
- * 路由管理 | 页面渲染 | 星空背景 | 交互处理
+ * 路由管理 | 页面渲染 | 交互处理
  */
-
-// ===== 星空背景 =====
-(function initStarfield() {
-  const canvas = document.getElementById('starfield');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let stars = [];
-  const STAR_COUNT = 180;
-
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-
-  function createStars() {
-    stars = [];
-    for (let i = 0; i < STAR_COUNT; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 2 + 0.4,
-        opacity: Math.random(),
-        twinkleSpeed: Math.random() * 0.015 + 0.003,
-        twinkleDir: Math.random() > 0.5 ? 1 : -1
-      });
-    }
-  }
-
-  function drawStars() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (const star of stars) {
-      star.opacity += star.twinkleSpeed * star.twinkleDir;
-      if (star.opacity >= 1) { star.opacity = 1; star.twinkleDir = -1; }
-      if (star.opacity <= 0.05) { star.opacity = 0.05; star.twinkleDir = 1; }
-
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(180, 220, 255, ${star.opacity})`;
-      ctx.fill();
-
-      if (star.r > 1.3) {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.r * 3, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 212, 255, ${star.opacity * 0.12})`;
-        ctx.fill();
-      }
-    }
-    requestAnimationFrame(drawStars);
-  }
-
-  window.addEventListener('resize', () => { resize(); createStars(); });
-  resize();
-  createStars();
-  drawStars();
-})();
 
 // ===== 工具函数 =====
 function escapeHtml(str) {
@@ -120,6 +65,8 @@ function navigate(route, params) {
   } else if (route === 'guide-detail' && params) {
     currentArticleId = params;
     window.location.hash = '#guide/' + params;
+  } else if (route === 'guide-game' && params) {
+    window.location.hash = '#guides/' + params;
   } else {
     window.location.hash = '#' + route;
   }
@@ -129,6 +76,7 @@ function parseHash() {
   const hash = window.location.hash.slice(1) || 'home';
   if (hash.startsWith('game/')) return { route: 'game-detail', id: parseInt(hash.split('/')[1]) };
   if (hash.startsWith('guide/')) return { route: 'guide-detail', id: parseInt(hash.split('/')[1]) };
+  if (hash.startsWith('guides/')) return { route: 'guide-game', id: parseInt(hash.split('/')[1]) };
   return { route: hash };
 }
 
@@ -144,17 +92,15 @@ function handleRoute() {
   scrollPositions[prevKey] = window.scrollY;
 
   // 1. 先移除所有页面的 active，触发淡出
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active', 'pop-in'));
 
   document.querySelectorAll('.nav-links a').forEach(a => {
     a.classList.remove('active');
     const r = a.dataset.route;
-    if (r === route || (route === 'game-detail' && r === 'games') || (route === 'guide-detail' && r === 'guides')) {
+    if (r === route || (route === 'game-detail' && r === 'games') || (route === 'guides' || route === 'guide-game' || route === 'guide-detail') && r === 'guides') {
       a.classList.add('active');
     }
   });
-
-  document.querySelector('.nav-links').classList.remove('open');
 
   // 2. 渲染新页面内容
   switch (route) {
@@ -162,6 +108,7 @@ function handleRoute() {
     case 'games': renderGames(); break;
     case 'game-detail': renderGameDetail(id); break;
     case 'guides': renderGuides(); break;
+    case 'guide-game': renderGuideGame(id); break;
     case 'guide-detail': renderGuideDetail(id); break;
     default: renderHome();
   }
@@ -169,27 +116,31 @@ function handleRoute() {
   updatePageTitle(route, id);
 
   // 3. 恢复滚动位置：详情页始终滚到顶部，列表页恢复之前的位置
-  if (route === 'game-detail' || route === 'guide-detail') {
+  if (route === 'game-detail' || route === 'guide-detail' || route === 'guide-game') {
     window.scrollTo(0, 0);
   } else {
     window.scrollTo(0, scrollPositions[route] || 0);
   }
 
-  // 4. 下一帧添加 active，触发 CSS transition 淡入动画
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      const pageMap = {
-        'home': 'page-home',
-        'games': 'page-games',
-        'game-detail': 'page-game-detail',
-        'guides': 'page-guides',
-        'guide-detail': 'page-guide-detail'
-      };
-      const pageId = pageMap[route] || 'page-home';
-      const pageEl = document.getElementById(pageId);
-      if (pageEl) pageEl.classList.add('active');
-    });
-  });
+  // 4. 立即显示新页面（列表页带轻微弹出）
+  const pageMap = {
+    'home': 'page-home',
+    'games': 'page-games',
+    'game-detail': 'page-game-detail',
+    'guides': 'page-guides',
+    'guide-game': 'page-guide-game',
+    'guide-detail': 'page-guide-detail'
+  };
+  const pageId = pageMap[route] || 'page-home';
+  const pageEl = document.getElementById(pageId);
+  if (pageEl) {
+    pageEl.classList.add('active');
+    // 返回列表/首页时轻微弹出
+    if (route === 'home' || route === 'games' || route === 'guides') {
+      void pageEl.offsetWidth;
+      pageEl.classList.add('pop-in');
+    }
+  }
 }
 
 function updatePageTitle(route, id) {
@@ -201,7 +152,11 @@ function updatePageTitle(route, id) {
     const g = GAMES_DATA.find(x => x.id === id);
     if (g) { title = g.name + ' - GAMEHUB'; desc = g.desc; }
   }
-  else if (route === 'guides') { title = '攻略中心 - GAMEHUB'; desc = '热门游戏攻略 · 通关秘籍'; }
+  else if (route === 'guides') { title = '攻略中心 - GAMEHUB'; desc = '按游戏分类的游戏攻略 · 通关秘籍'; }
+  else if (route === 'guide-game' && id) {
+    const g = GAMES_DATA.find(x => x.id === id);
+    if (g) { title = g.name + '攻略 - GAMEHUB'; desc = g.name + '游戏攻略合集，助你快速上手。'; }
+  }
   else if (route === 'guide-detail' && id) {
     const a = getAllArticles().find(x => x.id === id);
     if (a) { title = a.title + ' - GAMEHUB'; desc = a.summary; }
@@ -216,7 +171,7 @@ function updatePageTitle(route, id) {
 function renderHome() {
   const page = document.getElementById('page-home');
 
-  const hotGames = GAMES_DATA.filter(g => g.rating >= 4).slice(0, 6);
+  const hotGames = [...GAMES_DATA].sort((a, b) => (b.heat || 0) - (a.heat || 0)).slice(0, 18);
 
   page.innerHTML = `
     <section class="hero">
@@ -326,7 +281,7 @@ function renderGameDetail(id) {
     return;
   }
 
-  const related = GAMES_DATA.filter(g => g.category === game.category && g.id !== game.id).slice(0, 4);
+  const related = [...GAMES_DATA].filter(g => g.id !== game.id).sort((a, b) => (b.heat || 0) - (a.heat || 0)).slice(0, 4);
 
   page.innerHTML = `
     <button class="btn-back" onclick="navigate('games')">← 返回游戏大厅</button>
@@ -338,9 +293,12 @@ function renderGameDetail(id) {
         <div class="game-detail-specs">
           <div class="game-detail-spec"><div class="game-detail-spec-label">平台</div><div class="game-detail-spec-value">${escapeHtml(game.platform)}</div></div>
           <div class="game-detail-spec"><div class="game-detail-spec-label">发行年份</div><div class="game-detail-spec-value">${game.year}</div></div>
-          <div class="game-detail-spec"><div class="game-detail-spec-label">分类</div><div class="game-detail-spec-value">${escapeHtml(game.category)}</div></div>
+          ${game.sizeText ? `<div class="game-detail-spec"><div class="game-detail-spec-label">游戏大小</div><div class="game-detail-spec-value">${escapeHtml(game.sizeText)}</div></div>` : ''}
         </div>
-        <a href="${game.url}" target="_blank" rel="noopener noreferrer" class="btn-download">前往官网下载 ↗</a>
+        <div class="game-detail-actions">
+          <a href="${game.url}" target="_blank" rel="noopener noreferrer" class="btn-download">官网下载</a>
+          ${getArticlesOfGame(game.id).length > 0 ? `<button class="btn-guides" onclick="navigate('guide-game', ${game.id})">查看攻略</button>` : ''}
+        </div>
       </div>
     </div>
     ${related.length > 0 ? `
@@ -361,23 +319,85 @@ function renderGameDetail(id) {
   `;
 }
 
-// ===== 攻略列表 =====
+// ===== 攻略中心（按游戏浏览） =====
+function getArticlesOfGame(gameId) {
+  return getAllArticles().filter(a => a.gameId === gameId);
+}
+
 function renderGuides() {
   const page = document.getElementById('page-guides');
+  const articles = getAllArticles();
+  const countMap = {};
+  articles.forEach(a => { if (a.gameId) countMap[a.gameId] = (countMap[a.gameId] || 0) + 1; });
+
+  // 有攻略的游戏排前面，攻略多的靠前，其次按热度
+  const games = [...GAMES_DATA].sort((a, b) => {
+    const ca = countMap[a.id] || 0, cb = countMap[b.id] || 0;
+    if (ca !== cb) return cb - ca;
+    return (b.heat || 0) - (a.heat || 0);
+  });
 
   page.innerHTML = `
     <h2 class="section-title">攻略中心</h2>
-    <p class="section-subtitle">热门游戏攻略 · 通关秘籍</p>
+    <p class="section-subtitle">选择游戏查看攻略 · 共 ${articles.length} 篇</p>
 
     <div class="search-bar">
-      <input type="text" class="search-input" id="article-search" placeholder="搜索攻略文章..." oninput="handleArticleSearch(this.value)">
-      <button class="search-btn" onclick="document.getElementById('article-search').value='';handleArticleSearch('');">重置</button>
+      <input type="text" class="search-input" id="guide-game-search" placeholder="搜索游戏名称..." oninput="handleGuideGameSearch(this.value)">
+      <button class="search-btn" onclick="document.getElementById('guide-game-search').value='';handleGuideGameSearch('');">重置</button>
     </div>
 
-    <div class="article-list" id="article-list">
-      ${getAllArticles().map(a => {
-        const tags = [a.category];
+    <div class="game-grid" id="guide-game-grid">
+      ${games.map(g => {
+        const c = countMap[g.id] || 0;
         return `
+        <div class="game-card" onclick="navigate('guide-game', ${g.id})">
+          <img class="game-card-cover" src="${g.cover}" alt="${g.name}攻略" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
+          <div class="game-card-body">
+            <div class="game-card-name">${escapeHtml(g.name)}</div>
+            <span class="game-card-link">${c > 0 ? c + ' 篇攻略 →' : '攻略整理中'}</span>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>
+  `;
+}
+
+function handleGuideGameSearch(query) {
+  const grid = document.getElementById('guide-game-grid');
+  if (!grid) return;
+  const q = query.toLowerCase().trim();
+  grid.querySelectorAll('.game-card').forEach(card => {
+    const name = card.querySelector('.game-card-name').textContent.toLowerCase();
+    card.style.display = (!q || name.includes(q)) ? '' : 'none';
+  });
+}
+
+// ===== 单个游戏的攻略列表 =====
+function renderGuideGame(id) {
+  const page = document.getElementById('page-guide-game');
+  const game = GAMES_DATA.find(g => g.id === id);
+
+  if (!game) {
+    page.innerHTML = `
+      <button class="btn-back" onclick="navigate('guides')">← 返回攻略中心</button>
+      <div class="error-state"><p>游戏不存在</p><p>游戏未找到</p></div>
+    `;
+    return;
+  }
+
+  const articles = getArticlesOfGame(id);
+
+  page.innerHTML = `
+    <button class="btn-back" onclick="navigate('guides')">← 返回攻略中心</button>
+    <h2 class="section-title">${escapeHtml(game.name)} · 攻略</h2>
+    <p class="section-subtitle">${articles.length > 0 ? '共 ' + articles.length + ' 篇攻略' : '该游戏攻略整理中'}</p>
+    <div class="article-list">
+      ${articles.length === 0 ? `
+        <div class="no-results">
+          <p class="no-results-title">攻略更新中</p>
+          <p>该游戏的攻略正在整理，先去游戏大厅看看吧</p>
+        </div>
+      ` : articles.map(a => `
           <div class="article-card" onclick="navigate('guide-detail', ${a.id})">
             <div class="article-badge ${getBadgeClass(a.category)}">${escapeHtml(a.category)}</div>
             <div class="article-card-body">
@@ -387,26 +407,12 @@ function renderGuides() {
                 <span>${escapeHtml(a.author)}</span>
                 <span>${a.date}</span>
                 <span>👁 ${formatNumber(a.views)}</span>
-                <span class="article-card-tags">${tags.map(t => '<span class="article-card-tag">' + escapeHtml(t) + '</span>').join('')}</span>
               </div>
             </div>
           </div>
-        `;
-      }).join('')}
+        `).join('')}
     </div>
   `;
-}
-
-function handleArticleSearch(query) {
-  const list = document.getElementById('article-list');
-  if (!list) return;
-  const cards = list.querySelectorAll('.article-card');
-  const q = query.toLowerCase().trim();
-  cards.forEach(card => {
-    const title = card.querySelector('.article-card-title').textContent.toLowerCase();
-    const summary = card.querySelector('.article-card-summary').textContent.toLowerCase();
-    card.style.display = (!q || title.includes(q) || summary.includes(q)) ? '' : 'none';
-  });
 }
 
 // ===== 攻略详情 =====
@@ -422,10 +428,17 @@ function renderGuideDetail(id) {
     return;
   }
 
-  const moreArticles = getAllArticles().filter(a => a.id !== article.id).slice(0, 3);
+  const gameOfArticle = article.gameId ? GAMES_DATA.find(g => g.id === article.gameId) : null;
+  const backCall = gameOfArticle ? `navigate('guide-game', ${gameOfArticle.id})` : `navigate('guides')`;
+  const backLabel = gameOfArticle ? '← 返回' + escapeHtml(gameOfArticle.name) + '攻略' : '← 返回攻略中心';
+
+  // 相关阅读：优先同游戏的其他文章，不足再补其他游戏的热门文章
+  const sameGame = getAllArticles().filter(a => a.gameId === article.gameId && a.id !== article.id);
+  const others = getAllArticles().filter(a => a.gameId !== article.gameId).slice(0, Math.max(0, 3 - sameGame.length));
+  const moreArticles = [...sameGame, ...others].slice(0, 3);
 
   page.innerHTML = `
-    <button class="btn-back" onclick="navigate('guides')">← 返回攻略列表</button>
+    <button class="btn-back" onclick="${backCall}">${backLabel}</button>
     <div class="article-detail">
       <img class="article-detail-cover" src="${article.cover}" alt="${article.title}" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
       <h1 class="article-detail-title">${escapeHtml(article.title)}</h1>
@@ -462,22 +475,10 @@ function renderGuideDetail(id) {
   `;
 }
 
-// ===== 移动端菜单 =====
-function toggleMobileMenu() {
-  document.querySelector('.nav-links').classList.toggle('open');
-}
-
 // ===== 初始化 =====
 function init() {
   window.addEventListener('hashchange', handleRoute);
   handleRoute();
-  document.addEventListener('click', (e) => {
-    const nav = document.querySelector('.nav-links');
-    const toggle = document.querySelector('.nav-toggle');
-    if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !toggle.contains(e.target)) {
-      nav.classList.remove('open');
-    }
-  });
 }
 
 document.addEventListener('DOMContentLoaded', init);

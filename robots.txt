@@ -1,9 +1,11 @@
 User-agent: *
 Allow: /
 Disallow: /assets/
+Disallow: /admin.html
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://mengchen.me/sitemap.xml
 
 User-agent: Baiduspider
 Allow: /
 Disallow: /assets/
+Disallow: /admin.html

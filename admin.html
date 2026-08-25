@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>文章管理后台 - GAMEHUB</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -225,10 +226,16 @@
       <h1 class="page-title" id="editor-title">新建文章</h1>
       <p class="page-subtitle">填写文章信息，保存后即可在网站攻略页看到</p>
       <div class="card">
-        <div class="form-row">
+        <div class="form-row single">
           <div class="form-group">
             <label>文章标题 *</label>
             <input type="text" id="article-title" placeholder="如：龙之谷启程新手攻略">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>所属游戏 *</label>
+            <select id="article-game"></select>
           </div>
           <div class="form-group">
             <label>分类</label>
@@ -279,10 +286,19 @@
     <!-- 导入导出 -->
     <div id="tab-export">
       <h1 class="page-title">导入导出</h1>
-      <p class="page-subtitle">导出所有本地文章为JSON文件，方便备份和迁移</p>
+      <p class="page-subtitle">把本地写的文章变成可发布上线的代码</p>
       <div class="card">
-        <h3>导出本地文章</h3>
-        <p style="color:#8892b0;font-size:13px;margin-bottom:14px;">仅导出你自行添加的文章（不含内置文章），下载为JSON文件。</p>
+        <h3>导出为发布代码（推荐）</h3>
+        <p style="color:#8892b0;font-size:13px;margin-bottom:14px;">把你在后台写的本地文章生成为 JavaScript 代码。复制后粘贴到 <b>data/articles.js</b> 文件末尾（最后一行 <b>];</b> 的上方），再用 GitHub Desktop 推送，全网站就能看到。</p>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="exportAsJS()">📄 生成发布代码并复制</button>
+          <button class="btn btn-secondary" onclick="downloadJS()">⬇️ 下载为 .js 文件</button>
+        </div>
+        <textarea id="js-output" rows="8" style="display:none;margin-top:14px;background:#0a0f1a;border:1px solid #1a2240;border-radius:8px;padding:12px;color:#9fe8c8;font-size:12px;font-family:Consolas,monospace;width:100%;" readonly></textarea>
+      </div>
+      <div class="card">
+        <h3>导出本地文章（JSON备份）</h3>
+        <p style="color:#8892b0;font-size:13px;margin-bottom:14px;">仅导出你自行添加的文章（不含内置文章），下载为JSON文件，用于备份。</p>
         <button class="btn btn-primary" onclick="exportArticles()">📥 导出本地文章</button>
       </div>
       <div class="card">
@@ -298,6 +314,8 @@
     </div>
   </main>
 
+  <script src="data/games.js"></script>
+  <script src="data/articles.js"></script>
   <script>
     const STORAGE_KEY = 'gamehub_articles';
     // 静态文章数据（从 articles.js 同步，仅用于区分哪些是内置文章）
@@ -387,6 +405,7 @@
 
       document.getElementById('edit-id').value = id;
       document.getElementById('article-title').value = article.title;
+      document.getElementById('article-game').value = article.gameId || '';
       document.getElementById('article-category').value = article.category;
       document.getElementById('article-author').value = article.author;
       document.getElementById('article-date').value = article.date;
@@ -415,6 +434,7 @@
     function resetForm() {
       document.getElementById('edit-id').value = '';
       document.getElementById('article-title').value = '';
+      document.getElementById('article-game').value = '';
       document.getElementById('article-category').value = '攻略';
       document.getElementById('article-author').value = 'GAMEHUB攻略组';
       document.getElementById('article-date').value = new Date().toISOString().split('T')[0];
@@ -443,6 +463,7 @@
       const editId = document.getElementById('edit-id').value;
       const article = {
         id: editId ? parseInt(editId) : generateId(),
+        gameId: parseInt(document.getElementById('article-game').value) || null,
         title,
         category: document.getElementById('article-category').value,
         author: document.getElementById('article-author').value.trim() || 'GAMEHUB攻略组',
@@ -465,6 +486,59 @@
       resetForm();
       switchTab('list');
       showToast(editId ? '文章已更新！刷新网站即可看到' : '文章已保存！刷新网站即可看到');
+    }
+
+    // 生成可粘贴进 articles.js 的代码
+    function buildJSCode() {
+      const arr = getLocalArticles();
+      if (arr.length === 0) {
+        showToast('还没有本地文章，先去「新建文章」写一篇吧', 'error');
+        return null;
+      }
+      const body = arr.map(a => {
+        const content = String(a.content).replace(/`/g, '\\`').replace(/\$\{/g, '\\${');
+        return `  {
+    id: ${a.id},
+    gameId: ${a.gameId || 'null'},
+    title: "${String(a.title).replace(/"/g, '\\"')}",
+    summary: "${String(a.summary || '').replace(/"/g, '\\"')}",
+    content: \`${content}\`,
+    author: "${a.author}",
+    date: "${a.date}",
+    category: "${a.category}",
+    cover: "${a.cover}",
+    views: ${a.views || 1000}
+  },`;
+      }).join('\n');
+      return body;
+    }
+
+    function exportAsJS() {
+      const code = buildJSCode();
+      if (!code) return;
+      const ta = document.getElementById('js-output');
+      ta.style.display = 'block';
+      ta.value = code;
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast('已复制！到 data/articles.js 末尾粘贴（]; 的上方）');
+      } catch(e) {
+        showToast('请手动全选复制下方代码', 'error');
+      }
+    }
+
+    function downloadJS() {
+      const code = buildJSCode();
+      if (!code) return;
+      const blob = new Blob([code], { type: 'text/javascript' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'new_articles_' + new Date().toISOString().split('T')[0] + '.js';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('已下载，内容同上，可直接复制文件里的代码');
     }
 
     // 导出
@@ -520,6 +594,10 @@
         switchTab(a.dataset.tab);
       });
     });
+    // 填充所属游戏下拉框
+    const gameSelect = document.getElementById('article-game');
+    gameSelect.innerHTML = '<option value="">— 请选择游戏 —</option>' +
+      GAMES_DATA.map(g => `<option value="${g.id}">${g.name}（${g.id}）</option>`).join('');
     renderArticleList();
     document.getElementById('article-date').value = new Date().toISOString().split('T')[0];
   </script>
