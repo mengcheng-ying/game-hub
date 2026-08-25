@@ -57,6 +57,7 @@ function getAllArticles() {
 let currentGameId = null;
 let currentArticleId = null;
 const scrollPositions = {}; // 记录每个页面的滚动位置
+let isFirstRoute = true; // 首次加载不播放弹出动画
 
 function navigate(route, params) {
   if (route === 'game-detail' && params) {
@@ -135,12 +136,13 @@ function handleRoute() {
   const pageEl = document.getElementById(pageId);
   if (pageEl) {
     pageEl.classList.add('active');
-    // 返回列表/首页时轻微弹出
-    if (route === 'home' || route === 'games' || route === 'guides') {
+    // 返回列表/首页时轻微弹出（首次加载除外）
+    if (!isFirstRoute && (route === 'home' || route === 'games' || route === 'guides')) {
       void pageEl.offsetWidth;
       pageEl.classList.add('pop-in');
     }
   }
+  isFirstRoute = false;
 }
 
 function updatePageTitle(route, id) {
