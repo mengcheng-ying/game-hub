@@ -4,14 +4,31 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      mode:
+        description: '推送模式'
+        required: false
+        default: 'incremental'
+        type: choice
+        options:
+          - incremental
+          - full
 
 jobs:
   baidu-push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # 取完整历史，保证 git diff HEAD~1 可用
+          fetch-depth: 2
 
-      - name: 推送全部链接到百度
+      - name: 推送链接到百度
         env:
           BAIDU_TOKEN: ${{ secrets.BAIDU_PUSH_TOKEN }}
-        run: node .github/scripts/baidu-push.js
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.mode }}" = "full" ]; then
+            node .github/scripts/baidu-push.js --all
+          else
+            node .github/scripts/baidu-push.js
+          fi
