@@ -10,4 +10,4 @@ Thumbs.db
 node_modules/
 
 # 日志
-*.log
+*.log.github/scripts/node_modules/

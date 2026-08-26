@@ -483,7 +483,8 @@ main {
 
 .article-card {
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border-light);
+  border-left: 5px solid var(--accent);
   border-radius: var(--radius);
   padding: 20px 24px;
   cursor: pointer;
@@ -491,11 +492,15 @@ main {
   display: flex;
   gap: 20px;
   align-items: flex-start;
+  box-shadow: 0 1px 4px rgba(30, 41, 59, 0.05);
 }
 
 .article-card:hover {
   border-color: var(--accent);
+  border-left-color: var(--accent);
   background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.12);
 }
 
 .article-badge {
