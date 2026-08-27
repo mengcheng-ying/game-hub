@@ -400,7 +400,7 @@ function renderGuideGame(id) {
           <p>该游戏的攻略正在整理，先去游戏大厅看看吧</p>
         </div>
       ` : articles.map(a => `
-          <div class="article-card" onclick="navigate('guide-detail', ${a.id})">
+          <a class="article-card" href="/article/${a.id}.html" style="color:inherit;text-decoration:none">
             <div class="article-badge ${getBadgeClass(a.category)}">${escapeHtml(a.category)}</div>
             <div class="article-card-body">
               <h3 class="article-card-title">${escapeHtml(a.title)}</h3>
@@ -411,7 +411,7 @@ function renderGuideGame(id) {
                 <span>👁 ${formatNumber(a.views)}</span>
               </div>
             </div>
-          </div>
+          </a>
         `).join('')}
     </div>
   `;
@@ -458,7 +458,7 @@ function renderGuideDetail(id) {
         <p class="section-subtitle">继续阅读更多精彩内容</p>
         <div class="article-list">
           ${moreArticles.map(a => `
-            <div class="article-card" onclick="navigate('guide-detail', ${a.id})">
+            <a class="article-card" href="/article/${a.id}.html" style="color:inherit;text-decoration:none">
               <div class="article-badge ${getBadgeClass(a.category)}">${escapeHtml(a.category)}</div>
               <div class="article-card-body">
                 <h3 class="article-card-title">${escapeHtml(a.title)}</h3>
@@ -469,7 +469,7 @@ function renderGuideDetail(id) {
                   <span>👁 ${formatNumber(a.views)}</span>
                 </div>
               </div>
-            </div>
+            </a>
           `).join('')}
         </div>
       </div>

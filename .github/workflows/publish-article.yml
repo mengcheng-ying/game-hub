@@ -30,11 +30,14 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: node .github/scripts/publish-article.js
 
+      - name: 生成独立攻略页并重建 sitemap
+        run: node scripts/build-articles.js
+
       - name: 提交并推送（触发网站自动部署）
         run: |
           git config user.name "gamehub-bot"
           git config user.email "actions@github.com"
-          git add data/articles.js sitemap.xml
+          git add data/articles.js sitemap.xml article/ scripts/
           git commit -m "发文：${ARTICLE_TITLE}"
           git push
 
