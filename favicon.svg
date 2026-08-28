@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2b2b52"/>
+      <stop offset="100%" stop-color="#1a1a3a"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e8e8f4"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="108" fill="url(#bg)"/>
+  <!-- 手柄主体 -->
+  <g fill="url(#body)">
+    <rect x="132" y="216" width="248" height="86" rx="30"/>
+    <path d="M 178 300 l -14 62 c -3 14 6 24 20 24 l 22 0 c 11 0 19 -9 16 -20 l -9 -66 z"/>
+    <path d="M 334 300 l 14 62 c 3 14 -6 24 -20 24 l -22 0 c -11 0 -19 -9 -16 -20 l 9 -66 z"/>
+    <rect x="132" y="284" width="248" height="18" rx="9"/>
+  </g>
+  <!-- 十字方向键 -->
+  <g fill="#2b2b52">
+    <rect x="176" y="226" width="66" height="66" rx="10"/>
+    <rect x="196" y="222" width="26" height="74" rx="6" fill="#1a1a3a"/>
+    <rect x="200" y="214" width="18" height="22" rx="5" fill="#1a1a3a"/>
+  </g>
+  <rect x="198" y="224" width="22" height="22" rx="5" fill="#ff9d2e"/>
+  <rect x="198" y="268" width="22" height="22" rx="5" fill="#ff5b6a"/>
+  <!-- AB 按键 -->
+  <circle cx="292" cy="259" r="17" fill="#2b2b52"/>
+  <circle cx="326" cy="259" r="17" fill="#2b2b52"/>
+  <circle cx="309" cy="239" r="15" fill="#ff5b6a"/>
+  <circle cx="309" cy="279" r="15" fill="#22c58f"/>
+  <circle cx="268" cy="259" r="17" fill="#2b2b52" opacity="0"/>
+</svg>
