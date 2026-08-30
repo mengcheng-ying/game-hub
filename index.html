@@ -1,1170 +1,383 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="热门游戏攻略 · 通关秘籍">
-  <meta name="keywords" content="怀旧游戏,经典手游,龙之谷启程,墨香情,星辰变,神泣,飞飞,千年盛世,永恒岛,荣耀出征,传奇手游,奇迹MU,RO仙境传说,热江,游戏下载,游戏攻略,游戏排行">
-  <meta name="author" content="GAMEHUB">
-  <meta name="theme-color" content="#0a0f1a">
-  <meta name="baidu-site-verification" content="codeva-PFlAahInLt">
-  <meta name="sogou_site_verification" content="28czmWDAa2">
-  <meta name="robots" content="index, follow">
-  <meta name="referrer" content="always">
-  <meta property="og:title" content="怀旧游戏整合站 - 经典端游正版手游下载导航">
-  <meta property="og:description" content="收录龙之谷启程、墨香情、星辰变、神泣等经典端游正版手游，提供游戏下载导航、攻略资讯、热门排行。">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mengchen.me/">
-  <meta property="og:site_name" content="怀旧游戏整合站">
-  <meta property="og:image" content="https://mengchen.me/assets/images/longzhigu_cover.jpg">
-  <title>攻略中心 - GAMEHUB</title>
-  <link rel="stylesheet" href="css/style.css?v=20260825c">
-  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;rect width='100' height='100' rx='16' fill='%2300d4ff'/&gt;&lt;text x='50' y='68' text-anchor='middle' font-size='52'&gt;🎮&lt;/text&gt;&lt;/svg&gt;">
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="热门游戏攻略 · 下载导航 · 经典端游正版手游聚合">
+<meta name="keywords" content="怀旧游戏,经典手游,龙之谷启程,墨香情,星辰变,神泣,飞飞,千年盛世,永恒岛,荣耀出征,传奇手游,奇迹MU,RO仙境传说,游戏下载,游戏攻略,游戏排行">
+<meta name="author" content="GAMEHUB">
+<meta name="theme-color" content="#0b101a">
+<meta name="baidu-site-verification" content="codeva-PFlAahInLt">
+<meta name="sogou_site_verification" content="28czmWDAa2">
+<meta name="robots" content="index, follow">
+<meta name="referrer" content="always">
+<meta property="og:title" content="GAMEHUB - 经典正版手游下载导航 · 攻略中心">
+<meta property="og:description" content="收录龙之谷启程、墨香情、星辰变、神泣等经典端游正版手游，提供游戏下载导航、热门攻略。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mengchen.me/">
+<meta property="og:site_name" content="GAMEHUB 游戏整合站">
+<meta property="og:image" content="https://mengchen.me/assets/images/longzhigu_cover.jpg">
+<title>GAMEHUB - 经典正版手游下载导航 · 游戏攻略</title>
+<link rel="stylesheet" href="css/style.css?v=20260830">
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;rect width='100' height='100' rx='16' fill='%2300d4ff'/&gt;&lt;text x='50' y='68' text-anchor='middle' font-size='52'&gt;🎮&lt;/text&gt;&lt;/svg&gt;">
+<style>
+  :root{
+    --bg:#0b101a; --bg2:#111827; --bg3:#1a2333; --card:#16202f;
+    --card-hover:#1d2a3d; --line:rgba(255,255,255,.08);
+    --ink:#eef2f7; --muted:#9aa7ba; --dim:#6b7a90;
+    --accent:#3d7bff; --accent2:#00d4ff; --gold:#f5b50a;
+    --grad:linear-gradient(135deg,#3d7bff,#00d4ff);
+    --radius:14px; --radius-sm:10px;
+    --shadow:0 10px 40px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  ul{list-style:none}
+
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,16,26,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);height:64px}
+  .nav-in{max-width:1200px;margin:0 auto;padding:0 20px;height:100%;display:flex;align-items:center;gap:28px}
+  .nav-logo{display:flex;align-items:center;gap:10px;font-size:1.15rem;font-weight:800;letter-spacing:.5px}
+  .nav-logo .ic{width:30px;height:30px;border-radius:8px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 4px 14px rgba(61,123,255,.4)}
+  .nav-links{display:flex;gap:4px;margin-left:auto}
+  .nav-links a{padding:8px 16px;font-size:.9rem;color:var(--muted);border-radius:8px;transition:.2s}
+  .nav-links a:hover{color:var(--ink);background:rgba(255,255,255,.06)}
+  .nav-links a.active{color:var(--ink);background:rgba(61,123,255,.14)}
+  .nav-cta{padding:8px 18px;border-radius:999px;background:var(--grad);font-size:.85rem;font-weight:600;box-shadow:0 4px 16px rgba(61,123,255,.35);white-space:nowrap}
+
+  .hero{position:relative;margin-top:64px;height:520px;overflow:hidden}
+  .slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;pointer-events:none}
+  .slide.on{opacity:1;pointer-events:auto}
+  .slide .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.06)}
+  .slide.on .bg{animation:ken .8s ease forwards}
+  @keyframes ken{to{transform:scale(1)}}
+  .slide .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,13,22,.92) 0%,rgba(9,13,22,.62) 42%,rgba(9,13,22,.15) 100%);}
+  .slide .veil2{position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 0%,transparent 28%)}
+  .slide-in{position:relative;max-width:1200px;margin:0 auto;height:100%;padding:0 20px;display:flex;flex-direction:column;justify-content:center;gap:16px;z-index:2}
+  .slide-tag{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;padding:5px 14px;border-radius:999px;background:rgba(61,123,255,.18);border:1px solid rgba(61,123,255,.4);font-size:.78rem;color:var(--accent2);font-weight:600;letter-spacing:1px}
+  .slide h1{font-size:2.7rem;font-weight:900;line-height:1.2;max-width:620px;text-shadow:0 4px 24px rgba(0,0,0,.5)}
+  .slide .sub{font-size:1.06rem;color:var(--muted);max-width:560px}
+  .slide .btns{display:flex;gap:14px;margin-top:6px}
+  .btn{padding:13px 30px;border-radius:999px;font-size:.95rem;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:.25s;cursor:pointer;border:none}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 26px rgba(61,123,255,.45)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(61,123,255,.55)}
+  .btn-ghost{background:rgba(255,255,255,.1);color:var(--ink);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(6px)}
+  .btn-ghost:hover{background:rgba(255,255,255,.18)}
+  .dots{position:absolute;left:50%;transform:translateX(-50%);bottom:22px;z-index:5;display:flex;gap:8px}
+  .dots span{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.35);cursor:pointer;transition:.3s}
+  .dots span.on{width:26px;background:var(--accent2)}
+  .hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);transition:.2s}
+  .hero-arrow:hover{background:rgba(61,123,255,.4)}
+  .hero-arrow.prev{left:18px}
+  .hero-arrow.next{right:18px}
+
+  .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+  .sec{padding:64px 0}
+  .sec-head{text-align:center;margin-bottom:40px}
+  .sec-head .kick{display:inline-block;padding:4px 14px;border-radius:999px;background:rgba(61,123,255,.12);border:1px solid rgba(61,123,255,.3);color:var(--accent2);font-size:.75rem;font-weight:700;letter-spacing:2px;margin-bottom:14px}
+  .sec-head h2{font-size:1.9rem;font-weight:900}
+  .sec-head p{color:var(--muted);margin-top:8px;font-size:.95rem}
+
+  .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;transition:.25s;position:relative;overflow:hidden}
+  .feat:hover{transform:translateY(-4px);border-color:rgba(61,123,255,.4);box-shadow:var(--shadow)}
+  .feat .num{position:absolute;right:14px;top:6px;font-size:3.4rem;font-weight:900;color:rgba(255,255,255,.05)}
+  .feat .ico{width:46px;height:46px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:16px;box-shadow:0 6px 18px rgba(61,123,255,.35)}
+  .feat h3{font-size:1.05rem;font-weight:800;margin-bottom:8px}
+  .feat p{font-size:.85rem;color:var(--muted)}
+
+  .tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:32px}
+  .tab{padding:9px 22px;border-radius:999px;font-size:.88rem;color:var(--muted);background:var(--card);border:1px solid var(--line);cursor:pointer;transition:.2s}
+  .tab:hover{color:var(--ink)}
+  .tab.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 6px 20px rgba(61,123,255,.4)}
+  .game-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .gcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.25s;cursor:pointer;display:flex;flex-direction:column}
+  .gcard:hover{transform:translateY(-5px);border-color:rgba(61,123,255,.45);box-shadow:var(--shadow)}
+  .gcard .cv{position:relative;aspect-ratio:16/10;overflow:hidden}
+  .gcard .cv img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .gcard:hover .cv img{transform:scale(1.07)}
+  .gcard .cv .badge{position:absolute;top:10px;left:10px;padding:3px 10px;border-radius:99px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);font-size:.72rem;color:var(--accent2);font-weight:600}
+  .gcard .bd{padding:14px 14px 16px;display:flex;flex-direction:column;flex:1}
+  .gcard .nm{font-size:1rem;font-weight:800;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .gcard .ds{font-size:.78rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:12px;flex:1}
+  .gcard .ft{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .gcard .heat{font-size:.74rem;color:var(--gold);display:flex;align-items:center;gap:4px}
+  .gcard .go{padding:7px 16px;border-radius:99px;background:rgba(61,123,255,.14);color:var(--accent2);font-size:.8rem;font-weight:700;transition:.2s;border:1px solid rgba(61,123,255,.3)}
+  .gcard:hover .go{background:var(--grad);color:#fff;border-color:transparent}
+  .more-wrap{text-align:center;margin-top:36px}
+  .btn-outline{padding:12px 34px;border-radius:999px;border:1px solid rgba(61,123,255,.5);color:var(--accent2);font-weight:700;font-size:.9rem;background:transparent;transition:.2s;cursor:pointer}
+  .btn-outline:hover{background:rgba(61,123,255,.12)}
+
+  .guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .acard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;transition:.25s;cursor:pointer;display:flex;flex-direction:column;gap:12px}
+  .acard:hover{transform:translateY(-4px);border-color:rgba(0,212,255,.4);box-shadow:var(--shadow)}
+  .acard .top{display:flex;align-items:center;gap:10px}
+  .acard .top img{width:44px;height:44px;border-radius:10px;object-fit:cover}
+  .acard .top .gn{font-size:.8rem;color:var(--accent2);font-weight:700}
+  .acard .top .dt{font-size:.72rem;color:var(--dim)}
+  .acard h3{font-size:1.02rem;font-weight:800;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .acard p{font-size:.83rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+  .acard .rd{font-size:.8rem;color:var(--accent2);font-weight:600;display:flex;align-items:center;gap:5px}
+
+  .faq{max-width:760px;margin:0 auto}
+  .faq-item{border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--card);margin-bottom:12px;overflow:hidden}
+  .faq-item summary{padding:16px 20px;font-weight:700;font-size:.95rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  .faq-item summary::after{content:'+';font-size:1.3rem;color:var(--accent2);transition:.25s}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item .body{padding:0 20px 18px;color:var(--muted);font-size:.88rem}
+
+  .cta{position:relative;border-radius:22px;overflow:hidden;background:linear-gradient(120deg,#12233f,#0e1a30);border:1px solid rgba(61,123,255,.3);padding:56px 40px;text-align:center}
+  .cta::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 300px at 20% 0%,rgba(61,123,255,.25),transparent 60%),radial-gradient(600px 300px at 80% 100%,rgba(0,212,255,.18),transparent 60%)}
+  .cta>*{position:relative}
+  .cta h2{font-size:1.7rem;font-weight:900;margin-bottom:10px}
+  .cta p{color:var(--muted);margin-bottom:24px}
+  .cta .btn{font-size:1rem;padding:15px 40px}
+
+  footer{border-top:1px solid var(--line);padding:34px 0 40px;margin-top:40px}
+  .foot{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
+  .foot .logo{font-weight:800;font-size:1.05rem}
+  .foot p{font-size:.78rem;color:var(--dim)}
+
+  @media(max-width:1024px){
+    .game-grid{grid-template-columns:repeat(3,1fr)}
+    .feat-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:768px){
+    .nav-links a{padding:7px 10px;font-size:.8rem}
+    .nav-cta{display:none}
+    .hero{height:440px}
+    .slide h1{font-size:1.8rem}
+    .slide .sub{font-size:.92rem}
+    .game-grid{grid-template-columns:repeat(2,1fr)}
+    .guide-grid{grid-template-columns:1fr}
+    .feat-grid{grid-template-columns:1fr 1fr}
+    .sec{padding:44px 0}
+    .sec-head h2{font-size:1.5rem}
+    .cta{padding:40px 22px}
+    .hero-arrow{display:none}
+  }
+  @media(max-width:420px){
+    .game-grid{grid-template-columns:1fr 1fr;gap:12px}
+    .feat-grid{grid-template-columns:1fr}
+  }
+</style>
 </head>
 <body>
-  <!-- 主应用 -->
-  <div id="app">
-    <!-- 导航栏 -->
-    <nav class="navbar">
-      <div class="navbar-inner">
-        <a href="#home" class="nav-logo">
-          <span class="logo-icon">🎮</span>
-          <span>GAMEHUB</span>
-        </a>
-        <ul class="nav-links">
-          <li><a href="#home" data-route="home" class="active">首页</a></li>
-          <li><a href="#games" data-route="games">游戏大厅</a></li>
-          <li><a href="#guides" data-route="guides">游戏攻略</a></li>
-        </ul>
-      </div>
-    </nav>
 
-    <!-- 页面容器 -->
-    <main>
-      <div class="page active" id="page-home">
-    <section class="hero">
-      <h1 class="hero-title">游戏整合站</h1>
-      <p class="hero-subtitle">发现、下载、畅玩 —— 你的游戏资源中心</p>
-    </section>
-
-    <div class="quick-access">
-      <div class="quick-card" onclick="navigate('games')">
-        <span class="quick-card-icon">🎮</span>
-        <h3 class="quick-card-title">游戏大厅</h3>
-        <p class="quick-card-desc">39+ 款经典游戏</p>
-      </div>
-      <div class="quick-card" onclick="navigate('guides')">
-        <span class="quick-card-icon">📖</span>
-        <h3 class="quick-card-title">游戏攻略</h3>
-        <p class="quick-card-desc">通关秘籍 · 技巧分享</p>
-      </div>
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="#hero"><span class="ic">🎮</span>GAMEHUB</a>
+    <div class="nav-links">
+      <a href="#hero" class="active">首页</a>
+      <a href="#games">游戏大厅</a>
+      <a href="#guides">游戏攻略</a>
+      <a href="#faq">常见问题</a>
     </div>
+    <a class="nav-cta" href="#games">全部游戏</a>
+  </div>
+</nav>
 
-    <h2 class="section-title">热门推荐</h2>
-    <p class="section-subtitle">玩家最爱的经典游戏</p>
-    <div class="game-grid">
-      
-        <div class="game-card" onclick="navigate('game-detail', 1)">
-          <img class="game-card-cover" src="assets/images/longzhigu_cover.jpg" alt="龙之谷启程" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">龙之谷启程</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 2)">
-          <img class="game-card-cover" src="assets/images/moxiangqing_cover.jpg" alt="墨香情" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">墨香情</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 3)">
-          <img class="game-card-cover" src="assets/images/xingchenbian_cover.jpg" alt="星辰变：归来" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">星辰变：归来</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 4)">
-          <img class="game-card-cover" src="assets/images/feifei_cover.jpg" alt="飞飞：重逢" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">飞飞：重逢</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 5)">
-          <img class="game-card-cover" src="assets/images/shenqi_cover.jpg" alt="神泣：纷争" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">神泣：纷争</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 6)">
-          <img class="game-card-cover" src="assets/images/rongyao_cover.jpg" alt="荣耀出征卡点服" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">荣耀出征卡点服</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
+<div class="hero" id="hero">
+  <div class="slides" id="slides"></div>
+  <button class="hero-arrow prev" onclick="moveSlide(-1)">‹</button>
+  <button class="hero-arrow next" onclick="moveSlide(1)">›</button>
+  <div class="dots" id="dots"></div>
+</div>
+
+<section class="sec" id="features">
+  <div class="wrap">
+    <div class="feat-grid">
+      <div class="feat"><span class="num">01</span><div class="ico">🎯</div><h3>经典 IP 正版授权</h3><p>龙之谷、墨香、奇迹MU、永恒岛等经典端游正版复刻，重温纯正情怀。</p></div>
+      <div class="feat"><span class="num">02</span><div class="ico">🕹️</div><h3>海量游戏 一站畅玩</h3><p>39+ 款怀旧经典手游聚合，热门、传奇、仙境传说全都有，无需到处找。</p></div>
+      <div class="feat"><span class="num">03</span><div class="ico">📖</div><h3>专业攻略 持续更新</h3><p>44+ 篇原创攻略，职业加点、开荒路线、打金搬砖，助你少走弯路。</p></div>
+      <div class="feat"><span class="num">04</span><div class="ico">⚡</div><h3>快速上手 纯净体验</h3><p>一站式下载导航，直达官方下载入口，三端互通，开箱即玩。</p></div>
     </div>
   </div>
-      <div class="page" id="page-games">
-    <h2 class="section-title">游戏大厅</h2>
-    <p class="section-subtitle">共 39 款游戏</p>
+</section>
 
-    <div class="search-bar">
-      <input type="text" class="search-input" id="game-search" placeholder="搜索游戏名称..." oninput="handleGameSearch(this.value)">
-      <button class="search-btn" onclick="document.getElementById('game-search').value='';handleGameSearch('');">重置</button>
+<section class="sec" id="games" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">GAME LIBRARY</span>
+      <h2>海量游戏，一站式畅玩</h2>
+      <p>39+ 款经典正版手游，点击卡片进入官网下载</p>
     </div>
-
-    <div class="game-grid" id="game-grid">
-      
-        <div class="game-card" onclick="navigate('game-detail', 1)">
-          <img class="game-card-cover" src="assets/images/longzhigu_cover.jpg" alt="龙之谷启程" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">龙之谷启程</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 2)">
-          <img class="game-card-cover" src="assets/images/moxiangqing_cover.jpg" alt="墨香情" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">墨香情</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 3)">
-          <img class="game-card-cover" src="assets/images/xingchenbian_cover.jpg" alt="星辰变：归来" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">星辰变：归来</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 4)">
-          <img class="game-card-cover" src="assets/images/feifei_cover.jpg" alt="飞飞：重逢" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">飞飞：重逢</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 5)">
-          <img class="game-card-cover" src="assets/images/shenqi_cover.jpg" alt="神泣：纷争" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">神泣：纷争</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 6)">
-          <img class="game-card-cover" src="assets/images/rongyao_cover.jpg" alt="荣耀出征卡点服" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">荣耀出征卡点服</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 7)">
-          <img class="game-card-cover" src="assets/images/qiannian_cover.jpg" alt="千年盛世：千年传奇版" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">千年盛世：千年传奇版</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 8)">
-          <img class="game-card-cover" src="assets/images/longcheng_cover.jpg" alt="龙城秘境：凤凰沉默" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">龙城秘境：凤凰沉默</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 9)">
-          <img class="game-card-cover" src="assets/images/jianyu_cover.jpg" alt="剑与翼—经典复刻" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">剑与翼—经典复刻</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 10)">
-          <img class="game-card-cover" src="assets/images/juexingheji_cover.jpg" alt="龙城秘境：觉醒合击" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">龙城秘境：觉醒合击</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 11)">
-          <img class="game-card-cover" src="assets/images/xiaoxiaotulong_cover.jpg" alt="小小屠龙：原始火龙" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">小小屠龙：原始火龙</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 12)">
-          <img class="game-card-cover" src="assets/images/rongyao_cover.jpg" alt="荣耀出征" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">荣耀出征</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 13)">
-          <img class="game-card-cover" src="assets/images/longcheng_bingxue_cover.jpg" alt="龙城秘境：重返冰雪" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">龙城秘境：重返冰雪</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 14)">
-          <img class="game-card-cover" src="assets/images/juezhan_cover.jpg" alt="决战破晓" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">决战破晓</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 15)">
-          <img class="game-card-cover" src="assets/images/xxtl_huanbian_cover.jpg" alt="小小屠龙：幻变三职业" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">小小屠龙：幻变三职业</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 16)">
-          <img class="game-card-cover" src="assets/images/xxtl_lingfu_cover.jpg" alt="小小屠龙：灵符自由版" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">小小屠龙：灵符自由版</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 17)">
-          <img class="game-card-cover" src="assets/images/xxtl_3dheji_cover.jpg" alt="小小屠龙：3D合击版" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">小小屠龙：3D合击版</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 18)">
-          <img class="game-card-cover" src="assets/images/fengbao_cover.jpg" alt="风暴远征：英雄年代联动版" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">风暴远征：英雄年代联动版</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 19)">
-          <img class="game-card-cover" src="assets/images/yonghengdao_cover.jpg" alt="永恒岛：高清重制版" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">永恒岛：高清重制版</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 20)">
-          <img class="game-card-cover" src="assets/images/molibaobei_cover.jpg" alt="魔力宝贝回忆十宠版" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">魔力宝贝回忆十宠版</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 21)">
-          <img class="game-card-cover" src="assets/images/wulin_cover.jpg" alt="武林外传：十年之约" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">武林外传：十年之约</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 22)">
-          <img class="game-card-cover" src="assets/images/rejiang_cover.jpg" alt="热江：武林版" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">热江：武林版</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 23)">
-          <img class="game-card-cover" src="assets/images/feifei2_cover.jpg" alt="飞飞：重逢" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">飞飞：重逢</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 24)">
-          <img class="game-card-cover" src="assets/images/xxtl_kadian_cover.jpg" alt="小小屠龙：卡点重置版" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">小小屠龙：卡点重置版</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 25)">
-          <img class="game-card-cover" src="assets/images/qijishijie_cover.jpg" alt="奇迹世界：起源" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">奇迹世界：起源</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 31)">
-          <img class="game-card-cover" src="assets/images/tiantianlongzu_cover.jpg" alt="天天龙族怀旧服" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">天天龙族怀旧服</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 32)">
-          <img class="game-card-cover" src="assets/images/xunmengsilu_cover.jpg" alt="寻梦丝路" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">寻梦丝路</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 33)">
-          <img class="game-card-cover" src="assets/images/xxtl_bingxueqizhan_cover.jpg" alt="小小屠龙：冰雪骑战" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">小小屠龙：冰雪骑战</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 34)">
-          <img class="game-card-cover" src="assets/images/liehuotulong_cover.jpg" alt="烈火屠龙：美杜莎卡点服" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">烈火屠龙：美杜莎卡点服</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 35)">
-          <img class="game-card-cover" src="assets/images/yonghengdao_huaijiu_cover.jpg" alt="永恒岛：怀旧版" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">永恒岛：怀旧版</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 36)">
-          <img class="game-card-cover" src="assets/images/xiuxianjiazu2_cover.jpg" alt="修仙家族模拟器2" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">修仙家族模拟器2</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 37)">
-          <img class="game-card-cover" src="assets/images/yizhanlongcheng_cover.jpg" alt="义战龙城：3D纯净服" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">义战龙城：3D纯净服</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 38)">
-          <img class="game-card-cover" src="assets/images/rejiang_xinwanfa_cover.jpg" alt="热江：全新玩法" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">热江：全新玩法</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 39)">
-          <img class="game-card-cover" src="assets/images/bafengte_cover.jpg" alt="巴风特之怒：RO怀旧" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">巴风特之怒：RO怀旧</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 40)">
-          <img class="game-card-cover" src="assets/images/qiannian_yuanshi_cover.jpg" alt="千年盛世：原始千年" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">千年盛世：原始千年</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 41)">
-          <img class="game-card-cover" src="assets/images/yonghengdao_caihong_cover.jpg" alt="永恒岛：彩虹回忆" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">永恒岛：彩虹回忆</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 42)">
-          <img class="game-card-cover" src="assets/images/jinzhuangcaijue_cover.jpg" alt="金装裁决" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">金装裁决</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 43)">
-          <img class="game-card-cover" src="assets/images/tulongjuezhan_cover.jpg" alt="屠龙决战沙城：传奇三光通版" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">屠龙决战沙城：传奇三光通版</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-        <div class="game-card" onclick="navigate('game-detail', 44)">
-          <img class="game-card-cover" src="assets/images/rexuechuanshuo_cover.jpg" alt="热血传说：复古传奇" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-          <div class="game-card-body">
-            <div class="game-card-name">热血传说：复古传奇</div>
-            <span class="game-card-link">进入游戏 ↗</span>
-          </div>
-        </div>
-      
-    </div>
-
-    <p class="load-state">已加载全部 39 款游戏</p>
+    <div class="tabs" id="tabs"></div>
+    <div class="game-grid" id="gameGrid"></div>
   </div>
-      <div class="page" id="page-game-detail">
-    <button class="btn-back" onclick="navigate('games')">← 返回游戏大厅</button>
-    <div class="game-detail">
-      <img class="game-detail-cover" src="assets/images/rongyao_cover.jpg" alt="荣耀出征卡点服" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-      <div class="game-detail-info">
-        <h1 class="game-detail-name">荣耀出征卡点服</h1>
-        <p class="game-detail-desc">《荣耀出征》是正版奇迹MU授权复刻的3D魔幻MMORPG手游，由安徽游昕网络运营，像素级还原经典1.03H黄金版本。游戏以点卡制公平运营为核心，延续经典职业体系、复古装备掉落和多人协作副本，完整复刻勇者大陆、冰风谷等经典场景，带你重返艾瑞西亚大陆，体验纯粹的热血奇迹时代。</p>
-        <div class="game-detail-specs">
-          <div class="game-detail-spec"><div class="game-detail-spec-label">平台</div><div class="game-detail-spec-value">手游</div></div>
-          <div class="game-detail-spec"><div class="game-detail-spec-label">发行年份</div><div class="game-detail-spec-value">2025</div></div>
-        </div>
-        <a href="https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwODgsNTA4NywyMjk2NjNd" target="_blank" rel="noopener noreferrer" class="btn-download">前往官网下载 ↗</a>
-      </div>
+</section>
+
+<section class="sec" id="guides" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">GUIDES</span>
+      <h2>游戏攻略</h2>
+      <p>新手避坑 · 职业加点 · 打金搬砖 · 版本爆料，持续更新中</p>
     </div>
-    
-      <h2 class="section-title">同类游戏推荐</h2>
-      <p class="section-subtitle">你可能也喜欢这些游戏</p>
-      <div class="game-grid">
-        
-          <div class="game-card" onclick="navigate('game-detail', 1)">
-            <img class="game-card-cover" src="assets/images/longzhigu_cover.jpg" alt="龙之谷启程" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-            <div class="game-card-body">
-              <div class="game-card-name">龙之谷启程</div>
-              <span class="game-card-link">进入游戏 ↗</span>
-            </div>
-          </div>
-        
-          <div class="game-card" onclick="navigate('game-detail', 2)">
-            <img class="game-card-cover" src="assets/images/moxiangqing_cover.jpg" alt="墨香情" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-            <div class="game-card-body">
-              <div class="game-card-name">墨香情</div>
-              <span class="game-card-link">进入游戏 ↗</span>
-            </div>
-          </div>
-        
-          <div class="game-card" onclick="navigate('game-detail', 3)">
-            <img class="game-card-cover" src="assets/images/xingchenbian_cover.jpg" alt="星辰变：归来" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-            <div class="game-card-body">
-              <div class="game-card-name">星辰变：归来</div>
-              <span class="game-card-link">进入游戏 ↗</span>
-            </div>
-          </div>
-        
-          <div class="game-card" onclick="navigate('game-detail', 4)">
-            <img class="game-card-cover" src="assets/images/feifei_cover.jpg" alt="飞飞：重逢" loading="lazy" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-            <div class="game-card-body">
-              <div class="game-card-name">飞飞：重逢</div>
-              <span class="game-card-link">进入游戏 ↗</span>
-            </div>
-          </div>
-        
-      </div>
-    
+    <div class="guide-grid" id="guideGrid"></div>
   </div>
-      <div class="page" id="page-guides">
-    <h2 class="section-title">攻略中心</h2>
-    <p class="section-subtitle">热门游戏攻略 · 通关秘籍</p>
+</section>
 
-    <div class="search-bar">
-      <input type="text" class="search-input" id="article-search" placeholder="搜索攻略文章..." oninput="handleArticleSearch(this.value)">
-      <button class="search-btn" onclick="document.getElementById('article-search').value='';handleArticleSearch('');">重置</button>
-    </div>
-
-    <div class="article-list" id="article-list">
-      
-          <div class="article-card" onclick="navigate('guide-detail', 1)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">龙之谷启程：新手职业选择与开荒避坑指南</h3>
-              <p class="article-card-summary">五大职业到底怎么选？战神、祭司、元素师、箭神、剑圣全解析，新手一看就懂。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-15</span>
-                <span>👁 3.3万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 2)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">墨香情：六大武器流派全解析与新手推荐</h3>
-              <p class="article-card-summary">墨香情无职业设定，武器即流派。刀剑枪弓箭拳暗器六大武器详解，帮你找到最适合的江湖路。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-14</span>
-                <span>👁 2.9万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 3)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">星辰变归来：境界突破全攻略与战力提升避坑</h3>
-              <p class="article-card-summary">六大修真境界详解，突破顺序、材料获取、渡劫技巧，帮你少走弯路快速提升战力。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-13</span>
-                <span>👁 2.7万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 4)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">飞飞重逢：新手飞行系统与四大职业入门指南</h3>
-              <p class="article-card-summary">自由飞行是飞飞的核心特色，本文详解飞行器选择、养成与四大职业定位，助你快速上手。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-12</span>
-                <span>👁 2.5万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 5)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">神泣纷争：光暗阵营选择与六大职业深度解析</h3>
-              <p class="article-card-summary">光之同盟vs愤怒联合，两大阵营各有优劣。六大职业全解析，帮你选对阵营和职业。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-11</span>
-                <span>👁 2.4万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 6)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">荣耀出征：奇迹MU经典三职业加点与装备指南</h3>
-              <p class="article-card-summary">剑士、法师、弓箭手三职业经典加点方案，1.03H黄金版本装备路线全解析。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-10</span>
-                <span>👁 2.2万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 7)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">千年盛世传奇版：武功修炼优先级与元气系统详解</h3>
-              <p class="article-card-summary">武功修炼是千年核心，护体功法优先、输出武学紧跟、轻功辅助，修炼顺序决定战力上限。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-09</span>
-                <span>👁 2.1万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 8)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">龙城秘境凤凰沉默：沉默传奇三职业玩法与装备路线</h3>
-              <p class="article-card-summary">2003年经典沉默版本复刻，战士、法师、道士三职业各有特色，沉默装备系统深度解析。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-08</span>
-                <span>👁 1.9万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 9)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">剑与翼经典复刻：奇迹MU新手开荒全流程攻略</h3>
-              <p class="article-card-summary">从创建角色到一转二转，完整开荒路线、装备选择和升级地图推荐。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-07</span>
-                <span>👁 1.8万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 10)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">龙城秘境觉醒合击：元神搭配与合击连招详解</h3>
-              <p class="article-card-summary">元神合击是觉醒合击版核心玩法，主号+英雄元神搭配策略，合击技能连招全解析。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-06</span>
-                <span>👁 1.8万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 11)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">小小屠龙原始火龙：单职业打金全攻略</h3>
-              <p class="article-card-summary">火龙单职业版本打金路线、装备过渡、BOSS刷新点全整理，散人打金必看。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-05</span>
-                <span>👁 1.7万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 12)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">荣耀出征：点卡制奇迹公平玩法与搬砖指南</h3>
-              <p class="article-card-summary">点卡时长计费模式深度解析，无VIP无付费爆率，如何高效利用点卡时间搬砖打金。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-04</span>
-                <span>👁 1.6万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 13)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">龙城秘境重返冰雪：冰雪传奇打宝与装备强化攻略</h3>
-              <p class="article-card-summary">冰雪版本特色玩法、装备打宝路线、强化技巧全解析，散人玩家逆袭指南。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-03</span>
-                <span>👁 1.6万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 14)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">决战破晓：科幻MMO新手入门与元神养成攻略</h3>
-              <p class="article-card-summary">星际科幻题材MMO，元神本体同步养成、超能武装系统详解，新手快速上手。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-02</span>
-                <span>👁 1.5万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 15)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">小小屠龙幻变三职业：自由切换玩法与元素技能搭配</h3>
-              <p class="article-card-summary">战士、法师、道士自由切换玩法详解，冰火雷三系元素技能搭配策略，灵活应对各种战斗。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-01</span>
-                <span>👁 1.4万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 16)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">小小屠龙灵符自由版：灵符打金与自由交易全攻略</h3>
-              <p class="article-card-summary">灵符自由交易系统详解，摆摊技巧、装备回收路线、灵符获取渠道全整理。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-31</span>
-                <span>👁 1.4万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 17)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">小小屠龙3D合击版：英雄元神搭配与合击技能连招</h3>
-              <p class="article-card-summary">3D引擎重制版合击传奇，英雄元神选择、合击技能搭配、3D视角操作技巧全解析。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-30</span>
-                <span>👁 1.4万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 18)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">风暴远征英雄年代：军团战与跨服竞技策略指南</h3>
-              <p class="article-card-summary">英雄年代IP联动，军团战策略、跨服竞技技巧、英雄养成路线全解析。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-29</span>
-                <span>👁 1.3万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 19)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">永恒岛高清重制版：六大职业定位与新手成长路线</h3>
-              <p class="article-card-summary">战士、盾卫、法师、游侠、术士、工程师六大职业详解，新手选职与成长路线推荐。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-28</span>
-                <span>👁 1.3万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 20)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">魔力宝贝回忆十宠版：十宠系统与职业搭配全攻略</h3>
-              <p class="article-card-summary">十只宠物同时出战系统详解，宠物进化路线、职业搭配推荐，重温魔力宝贝经典。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-27</span>
-                <span>👁 1.3万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 21)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">武林外传十年之约：十大职业选择与七侠镇玩法指南</h3>
-              <p class="article-card-summary">十大经典职业复刻，七侠镇同福客栈核心玩法，新手选职与日常任务路线推荐。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-26</span>
-                <span>👁 1.2万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 22)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">热江武林版：正邪对立选择与武功修炼攻略</h3>
-              <p class="article-card-summary">正派vs邪派阵营选择指南，武功修炼系统详解，门派争斗与跨服竞技策略。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-25</span>
-                <span>👁 1.2万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 23)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">飞飞重逢：飞行器养成与空中战斗进阶技巧</h3>
-              <p class="article-card-summary">飞行器升级路线、属性选择、空中战斗进阶技巧，教你成为飞行高手。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-24</span>
-                <span>👁 1.2万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 24)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">小小屠龙卡点重置版：卡点计费模式与公平竞技详解</h3>
-              <p class="article-card-summary">卡点时长计费模式玩法指南，无VIP无付费爆率下的公平竞技策略与资源规划。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-23</span>
-                <span>👁 1.1万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 25)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">奇迹世界起源：阵营对抗与副本团战策略指南</h3>
-              <p class="article-card-summary">光暗阵营对抗玩法详解，副本团战策略，职业搭配与装备养成路线。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-22</span>
-                <span>👁 1.1万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 31)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">天天龙族怀旧服：三大王国国战与龙族变身攻略</h3>
-              <p class="article-card-summary">拜索斯、杰彭、伊岚三大王国选择指南，国战系统详解，龙族变身玩法全攻略。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-21</span>
-                <span>👁 1.1万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 32)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">寻梦丝路：丝绸之路贸易经营与商队护镖攻略</h3>
-              <p class="article-card-summary">跨城贸易经营系统详解，商队护镖玩法，多职业选择与阵营对抗策略。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-20</span>
-                <span>👁 1.1万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 33)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">小小屠龙冰雪骑战：坐骑养成与骑战技能全攻略</h3>
-              <p class="article-card-summary">冰雪骑战版核心玩法——坐骑系统详解，骑战技能搭配，坐骑进化路线推荐。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-19</span>
-                <span>👁 1.0万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 34)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">烈火屠龙美杜莎：BOSS挑战与石化技能应对策略</h3>
-              <p class="article-card-summary">美杜莎主题版本特色玩法，美杜莎BOSS机制详解，石化技能应对技巧与卡点规划。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-18</span>
-                <span>👁 9.9k</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 35)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">永恒岛怀旧版：经典职业怀旧指南与成长路线</h3>
-              <p class="article-card-summary">怀旧版经典职业全面解析，老玩家回归指南，重温最原汁原味的彩虹岛冒险。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-17</span>
-                <span>👁 9.6k</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 36)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">修仙家族模拟器2：家族经营与修仙境界突破指南</h3>
-              <p class="article-card-summary">家族掌门经营策略，修仙境界突破路线，资源采集与灵兽养成详解。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-16</span>
-                <span>👁 9.3k</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 37)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">义战龙城3D纯净服：公平传奇玩法与3D操作指南</h3>
-              <p class="article-card-summary">3D纯净服无VIP无付费属性加成，3D视角操作技巧，公平竞技环境下的成长策略。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-15</span>
-                <span>👁 9.0k</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 38)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">热江全新玩法：动态副本与跨服竞技系统详解</h3>
-              <p class="article-card-summary">全新玩法版本特色系统解析，动态副本机制、跨服竞技策略、帮派战新玩法。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-14</span>
-                <span>👁 8.7k</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 39)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">巴风特之怒RO怀旧：六大经典职业加点与转职攻略</h3>
-              <p class="article-card-summary">RO经典职业体系详解，剑士、法师、弓箭手、服事、盗贼、商人一转二转全攻略。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-13</span>
-                <span>👁 8.4k</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 40)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">千年盛世原始千年：原始版本武功修炼与门派争端</h3>
-              <p class="article-card-summary">回归最原始的千年版本，武功修炼、门派争斗、自由交易核心玩法全解析。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-12</span>
-                <span>👁 8.1k</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 41)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">永恒岛彩虹回忆：经典职业与宠物养成玩法指南</h3>
-              <p class="article-card-summary">彩虹般的童话冒险，经典职业解析、宠物养成系统、社交互动玩法全攻略。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-11</span>
-                <span>👁 7.8k</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 42)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">金装裁决：金装收集与裁决神器养成攻略</h3>
-              <p class="article-card-summary">金装系统深度解析，裁决神器养成路线，BOSS争夺与跨服攻城策略。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-10</span>
-                <span>👁 7.5k</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 43)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">屠龙决战沙城：三端互通与沙城争霸全攻略</h3>
-              <p class="article-card-summary">三端互通玩法指南，沙城争霸战术策略，战法道三职业经典玩法详解。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-09</span>
-                <span>👁 7.2k</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 44)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">热血传说复古传奇：1.76经典版本玩法与装备路线</h3>
-              <p class="article-card-summary">1.76经典版本复刻，战法道三职业加点、装备路线、BOSS刷新与沙巴克攻略。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-07-08</span>
-                <span>👁 6.9k</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
-          <div class="article-card" onclick="navigate('guide-detail', 45)">
-            <div class="article-badge badge-guide">攻略</div>
-            <div class="article-card-body">
-              <h3 class="article-card-title">龙之谷启程：零氪玩家每日必做任务清单与资源规划</h3>
-              <p class="article-card-summary">上线不知道干什么？这份每日任务清单帮你高效规划资源，少走弯路快速变强。</p>
-              <div class="article-card-meta">
-                <span>GAMEHUB攻略组</span>
-                <span>2026-08-25</span>
-                <span>👁 1.6万</span>
-                <span class="article-card-tags"><span class="article-card-tag">攻略</span></span>
-              </div>
-            </div>
-          </div>
-        
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><span class="kick">FAQ</span><h2>常见问题</h2></div>
+    <div class="faq">
+      <details class="faq-item"><summary>这些游戏都是正版吗？</summary><div class="body">本站收录的游戏均为经典端游 IP 的正版授权或官方运营手游，点击「进入游戏」会跳转到对应游戏官方下载入口，安全可靠。</div></details>
+      <details class="faq-item"><summary>游戏在电脑上能玩吗？</summary><div class="body">多数游戏支持安卓 / iOS / PC 三端互通，电脑端可用官方模拟器运行，键鼠操作体验更佳。</div></details>
+      <details class="faq-item"><summary>攻略多久更新一次？</summary><div class="body">攻略由攻略组持续创作，覆盖新手入门、职业加点、版本玩法等，新游戏上线后会在第一时间补齐对应攻略。</div></details>
+      <details class="faq-item"><summary>下载需要付费吗？</summary><div class="body">游戏本身均免费下载，部分游戏采用点卡或内购模式，本站只做导航与攻略，不涉及任何付费代充。</div></details>
     </div>
   </div>
-      <div class="page" id="page-guide-game"></div>
-      <div class="page" id="page-guide-detail">
-    <button class="btn-back" onclick="navigate('guides')">← 返回攻略列表</button>
-    <div class="article-detail">
-      <img class="article-detail-cover" src="assets/images/longzhigu_cover.jpg" alt="龙之谷启程：新手职业选择与开荒避坑指南" onerror="this.style.background='var(--bg-secondary)';this.alt='暂无封面';">
-      <h1 class="article-detail-title">龙之谷启程：新手职业选择与开荒避坑指南</h1>
-      <div class="article-detail-meta">
-        <span>👤 GAMEHUB攻略组</span>
-        <span>📅 2026-08-15</span>
-        <span>👁 3.3万 阅读</span>
-        <span class="article-badge badge-guide">攻略</span>
-      </div>
-      <div class="article-detail-content"><h2>新手职业推荐</h2>
-<p>《龙之谷启程》延续端游无锁定战斗，五大职业各有特色。新手最关心的就是：选哪个职业不踩坑？</p>
-<h3>战士→战神（新手T0首选）</h3>
-<p>高血量高防御，自带霸体抗打断，操作简单不刮痧，聚怪能力拉满。单刷副本轻松通关，组队适配所有阵容，不吃装备也能打出稳定输出，零基础玩家闭眼选。</p>
-<h3>牧师→祭司（零氪福音）</h3>
-<p>专属治疗技能，副本永远有人抢着组。不需要高强装备，零氪玩家也能玩得很舒服。PVE副本刚需职业，组队环境极好。</p>
-<h3>法师→元素师（输出天花板）</h3>
-<p>AOE伤害全职业第一，刷图搬砖效率最高。但身板脆、操作要求高，适合有一定动作游戏基础的玩家。追求极限DPS的不二之选。</p>
-<h3>弓箭手→箭神（远程均衡）</h3>
-<p>远程物理输出，刷图PK两不误。技能灵活，拉扯能力强，适合喜欢远程放风筝的玩家。</p>
-<h3>战士→剑圣（操作党首选）</h3>
-<p>近战爆发高，PK强势，但操作难度大。适合追求极限操作和竞技玩法的玩家。</p>
-<h2>资源避坑</h2>
-<p>金币优先强化技能，钻石留买进阶材料，不要分散资源。35级装备库可免费提升，前期不要过度强化低级装备。</p></div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta">
+      <h2>开启你的怀旧游戏之旅</h2>
+      <p>经典 IP 正版手游，热门攻略一站集齐</p>
+      <a class="btn btn-primary" href="#games">🎮 浏览全部游戏</a>
     </div>
-    
-      <div style="margin-top:40px;">
-        <h2 class="section-title">更多攻略</h2>
-        <p class="section-subtitle">继续阅读更多精彩内容</p>
-        <div class="article-list">
-          
-            <div class="article-card" onclick="navigate('guide-detail', 2)">
-              <div class="article-badge badge-guide">攻略</div>
-              <div class="article-card-body">
-                <h3 class="article-card-title">墨香情：六大武器流派全解析与新手推荐</h3>
-                <p class="article-card-summary">墨香情无职业设定，武器即流派。刀剑枪弓箭拳暗器六大武器详解，帮你找到最适合的江湖路。</p>
-                <div class="article-card-meta">
-                  <span>GAMEHUB攻略组</span>
-                  <span>2026-08-14</span>
-                  <span>👁 2.9万</span>
-                </div>
-              </div>
-            </div>
-          
-            <div class="article-card" onclick="navigate('guide-detail', 3)">
-              <div class="article-badge badge-guide">攻略</div>
-              <div class="article-card-body">
-                <h3 class="article-card-title">星辰变归来：境界突破全攻略与战力提升避坑</h3>
-                <p class="article-card-summary">六大修真境界详解，突破顺序、材料获取、渡劫技巧，帮你少走弯路快速提升战力。</p>
-                <div class="article-card-meta">
-                  <span>GAMEHUB攻略组</span>
-                  <span>2026-08-13</span>
-                  <span>👁 2.7万</span>
-                </div>
-              </div>
-            </div>
-          
-            <div class="article-card" onclick="navigate('guide-detail', 4)">
-              <div class="article-badge badge-guide">攻略</div>
-              <div class="article-card-body">
-                <h3 class="article-card-title">飞飞重逢：新手飞行系统与四大职业入门指南</h3>
-                <p class="article-card-summary">自由飞行是飞飞的核心特色，本文详解飞行器选择、养成与四大职业定位，助你快速上手。</p>
-                <div class="article-card-meta">
-                  <span>GAMEHUB攻略组</span>
-                  <span>2026-08-12</span>
-                  <span>👁 2.5万</span>
-                </div>
-              </div>
-            </div>
-          
-        </div>
-      </div>
-    
   </div>
-    </main>
+</section>
 
-    <!-- 页脚 -->
-    <footer class="footer">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="logo-icon">🎮</span>
-          <span>GAMEHUB 游戏整合站</span>
-        </div>
-        <div class="footer-links">
-          <a href="#home">首页</a>
-          <a href="#games">游戏大厅</a>
-          <a href="#guides">游戏攻略</a>
-        </div>
-      </div>
-    </footer>
+<footer>
+  <div class="foot">
+    <div class="logo">🎮 GAMEHUB 游戏整合站</div>
+    <p>本站仅提供游戏导航与攻略信息 · 游戏版权归各开发商所有</p>
+    <p>© 2026 GAMEHUB · mengchen.me</p>
   </div>
+</footer>
 
-  <!-- 数据文件 -->
-  <script src="data/games.js?v=20260825c"></script>
-  <script src="data/articles.js?v=20260825"></script>
-  <!-- 主逻辑 -->
-  <script src="js/main.js?v=20260825c"></script>
+<script>
+/* ===== 游戏数据 ===== */
+var GAMES=[
+{id:1,name:"龙之谷启程",dev:"三九互娱",cover:"assets/images/longzhigu_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7259&promote_id=1778",heat:920000,grp:"三九正版"},
+{id:2,name:"墨香情",dev:"三九互娱",cover:"assets/images/moxiangqing_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7032&promote_id=1778",heat:880000,grp:"三九正版"},
+{id:3,name:"星辰变：归来",dev:"江苏欢娱",cover:"assets/images/xingchenbian_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7205&promote_id=1778",heat:850000,grp:"三九正版"},
+{id:4,name:"飞飞：重逢",dev:"游昕网络",cover:"assets/images/feifei_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7012&promote_id=1778",heat:820000,grp:"游昕经典"},
+{id:5,name:"神泣：纷争",dev:"三九互娱",cover:"assets/images/shenqi_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7188&promote_id=1778",heat:790000,grp:"三九正版"},
+{id:6,name:"荣耀出征卡点服",dev:"安徽游昕",cover:"assets/images/rongyao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwODgsNTA4NywyMjk2NjNd",heat:860000,grp:"奇迹MU"},
+{id:7,name:"千年盛世：千年传奇版",dev:"安徽游昕",cover:"assets/images/qiannian_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwNzQsNTA3MywyMjk2NjNd",heat:840000,grp:"游昕经典"},
+{id:8,name:"龙城秘境：凤凰沉默",dev:"安徽游昕",cover:"assets/images/longcheng_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwNjMsNTA2MiwyMjk2NjNd",heat:830000,grp:"传奇怀旧"},
+{id:9,name:"剑与翼—经典复刻",dev:"安徽游昕",cover:"assets/images/jianyu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ5MzgsNDkzNywyMjk2NjNd",heat:810000,grp:"奇迹MU"},
+{id:10,name:"龙城秘境：觉醒合击",dev:"安徽游昕",cover:"assets/images/juexingheji_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ5MzYsNDkzNSwyMjk2NjNd",heat:800000,grp:"传奇怀旧"},
+{id:11,name:"小小屠龙：原始火龙",dev:"安徽游昕",cover:"assets/images/xiaoxiaotulong_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ4NDEsNDg0MCwyMjk2NjNd",heat:780000,grp:"小小屠龙"},
+{id:12,name:"荣耀出征",dev:"安徽游昕",cover:"assets/images/rongyao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ3MTksNDcxOCwyMjk2NjNd",heat:770000,grp:"奇迹MU"},
+{id:13,name:"龙城秘境：重返冰雪",dev:"安徽游昕",cover:"assets/images/longcheng_bingxue_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ2NTEsNDY1MCwyMjk2NjNd",heat:760000,grp:"传奇怀旧"},
+{id:14,name:"决战破晓",dev:"三九/游昕",cover:"assets/images/juezhan_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ1ODQsNDU4MywyMjk2NjNd",heat:750000,grp:"三九正版"},
+{id:15,name:"小小屠龙：幻变三职业",dev:"安徽游昕",cover:"assets/images/xxtl_huanbian_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ1MDksNDUwOCwyMjk2NjNd",heat:740000,grp:"小小屠龙"},
+{id:16,name:"小小屠龙：灵符自由版",dev:"安徽游昕",cover:"assets/images/xxtl_lingfu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ0MzgsNDQzNywyMjk2NjNd",heat:730000,grp:"小小屠龙"},
+{id:17,name:"小小屠龙：3D合击版",dev:"安徽游昕",cover:"assets/images/xxtl_3dheji_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzODYsNDM4NSwyMjk2NjNd",heat:720000,grp:"小小屠龙"},
+{id:18,name:"风暴远征：英雄年代联动版",dev:"安徽游昕",cover:"assets/images/fengbao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzAsNDM2OSwyMjk2NjNd",heat:710000,grp:"游昕经典"},
+{id:19,name:"永恒岛：高清重制版",dev:"安徽游昕",cover:"assets/images/yonghengdao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzNDYsNDM0NSwyMjk2NjNd",heat:700000,grp:"永恒岛"},
+{id:20,name:"魔力宝贝回忆十宠版",dev:"安徽游昕",cover:"assets/images/molibaobei_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzMzgsNDMzNywyMjk2NjNd",heat:690000,grp:"游昕经典"},
+{id:21,name:"武林外传：十年之约",dev:"安徽游昕",cover:"assets/images/wulin_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzNzEsNDMyOCwyMjk2NjNd",heat:680000,grp:"游昕经典"},
+{id:22,name:"热江：武林版",dev:"安徽游昕",cover:"assets/images/rejiang_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzNjMsNDMwOSwyMjk2NjNd",heat:670000,grp:"游昕经典"},
+{id:23,name:"飞飞：重逢",dev:"安徽游昕",cover:"assets/images/feifei2_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQyNjQsNDI2MywyMjk2NjNd",heat:660000,grp:"游昕经典"},
+{id:24,name:"小小屠龙：卡点重置版",dev:"安徽游昕",cover:"assets/images/xxtl_kadian_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQxMTEsNDExMCwyMjk2NjNd",heat:650000,grp:"小小屠龙"},
+{id:25,name:"奇迹世界：起源",dev:"安徽游昕",cover:"assets/images/qijishijie_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQwODgsNDA4NywyMjk2NjNd",heat:640000,grp:"游昕经典"},
+{id:31,name:"天天龙族怀旧服",dev:"安徽游昕",cover:"assets/images/tiantianlongzu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQwMTUsNDAxNCwyMjk2NjNd",heat:630000,grp:"游昕经典"},
+{id:32,name:"寻梦丝路",dev:"安徽游昕",cover:"assets/images/xunmengsilu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQxNjUsMzkyMSwyMjk2NjNd",heat:620000,grp:"游昕经典"},
+{id:33,name:"小小屠龙：冰雪骑战",dev:"安徽游昕",cover:"assets/images/xxtl_bingxueqizhan_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzM4NjgsMzg2NywyMjk2NjNd",heat:610000,grp:"小小屠龙"},
+{id:34,name:"烈火屠龙：美杜莎卡点服",dev:"安徽游昕",cover:"assets/images/liehuotulong_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzM3NTEsMzc1MCwyMjk2NjNd",heat:600000,grp:"传奇怀旧"},
+{id:35,name:"永恒岛：怀旧版",dev:"安徽游昕",cover:"assets/images/yonghengdao_huaijiu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzM0MjEsMzM5NiwyMjk2NjNd",heat:590000,grp:"永恒岛"},
+{id:36,name:"修仙家族模拟器2",dev:"安徽游昕",cover:"assets/images/xiuxianjiazu2_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzMzODAsMzM3OSwyMjk2NjNd",heat:580000,grp:"游昕经典"},
+{id:37,name:"义战龙城：3D纯净服",dev:"安徽游昕",cover:"assets/images/yizhanlongcheng_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzI4MDIsMjgwMSwyMjk2NjNd",heat:570000,grp:"传奇怀旧"},
+{id:38,name:"热江：全新玩法",dev:"安徽游昕",cover:"assets/images/rejiang_xinwanfa_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzI3MTMsMjc3NiwyMjk2NjNd",heat:560000,grp:"游昕经典"},
+{id:39,name:"巴风特之怒：RO怀旧",dev:"安徽游昕",cover:"assets/images/bafengte_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzI1NjEsMjM2OSwyMjk2NjNd",heat:550000,grp:"游昕经典"},
+{id:40,name:"千年盛世：原始千年",dev:"安徽游昕",cover:"assets/images/qiannian_yuanshi_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzEzNjMsMTM2MiwyMjk2NjNd",heat:540000,grp:"游昕经典"},
+{id:41,name:"永恒岛：彩虹回忆",dev:"安徽游昕",cover:"assets/images/yonghengdao_caihong_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzEyMTgsMTIxNywyMjk2NjNd",heat:530000,grp:"永恒岛"},
+{id:42,name:"金装裁决",dev:"安徽游昕",cover:"assets/images/jinzhuangcaijue_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzEwNzgsMTA3NywyMjk2NjNd",heat:520000,grp:"传奇怀旧"},
+{id:43,name:"屠龙决战沙城：传奇三光通版",dev:"安徽游昕",cover:"assets/images/tulongjuezhan_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzczMCw3MjksMjI5NjYzXQ==",heat:510000,grp:"传奇怀旧"},
+{id:44,name:"热血传说：复古传奇",dev:"安徽游昕",cover:"assets/images/rexuechuanshuo_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzM2OCwzNjcsMjI5NjYzXQ==",heat:500000,grp:"传奇怀旧"}
+];
 
-</body></html>
+/* ===== 攻略数据（链接到 SEO 静态页） ===== */
+var GUIDES=[
+{g:"龙之谷启程",cover:"assets/images/longzhigu_cover.jpg",aid:1,title:"龙之谷启程：新手职业选择与开荒避坑指南",sum:"五大职业到底怎么选？战神、祭司、元素师、箭神、剑圣全解析，新手一看就懂。",date:"2026-08-15"},
+{g:"墨香情",cover:"assets/images/moxiangqing_cover.jpg",aid:2,title:"墨香情：六大武器流派全解析与新手推荐",sum:"墨香情无职业设定，武器即流派。刀剑枪弓箭拳暗器六大武器详解，帮你找到最适合的江湖路。",date:"2026-08-14"},
+{g:"星辰变：归来",cover:"assets/images/xingchenbian_cover.jpg",aid:3,title:"星辰变归来：境界突破全攻略与战力提升避坑",sum:"六大修真境界详解，突破顺序、材料获取、渡劫技巧，帮你少走弯路快速提升战力。",date:"2026-08-13"},
+{g:"飞飞：重逢",cover:"assets/images/feifei_cover.jpg",aid:4,title:"飞飞重逢：新手飞行系统与四大职业入门指南",sum:"自由飞行是飞飞的核心特色，本文详解飞行器选择、养成与四大职业定位，助你快速上手。",date:"2026-08-12"},
+{g:"神泣：纷争",cover:"assets/images/shenqi_cover.jpg",aid:5,title:"神泣纷争：光暗阵营选择与六大职业深度解析",sum:"光之同盟vs愤怒联合，两大阵营各有优劣。六大职业全解析，帮你选对阵营和职业。",date:"2026-08-11"},
+{g:"荣耀出征",cover:"assets/images/rongyao_cover.jpg",aid:6,title:"荣耀出征：奇迹MU经典三职业加点与装备指南",sum:"剑士、法师、弓箭手三职业经典加点方案，1.03H黄金版本装备路线全解析。",date:"2026-08-10"},
+{g:"永恒岛：高清重制版",cover:"assets/images/yonghengdao_cover.jpg",aid:19,title:"永恒岛高清重制版：六大职业定位与新手成长路线",sum:"战士、盾卫、法师、游侠、术士、工程师六大职业详解，新手选职与成长路线推荐。",date:"2026-08-08"},
+{g:"巴风特之怒：RO怀旧",cover:"assets/images/bafengte_cover.jpg",aid:39,title:"巴风特之怒RO怀旧：六大经典职业加点与转职攻略",sum:"RO经典职业体系详解，剑士、法师、弓箭手、服事、盗贼、商人一转二转全攻略。",date:"2026-08-03"},
+{g:"小小屠龙：原始火龙",cover:"assets/images/xiaoxiaotulong_cover.jpg",aid:11,title:"小小屠龙原始火龙：单职业打金全攻略",sum:"火龙单职业版本打金路线、装备过渡、BOSS刷新点全整理，散人打金必看。",date:"2026-08-06"}
+];
+
+/* ===== 轮播 ===== */
+var SLIDES=[
+{g:"龙之谷启程",slogan:"重返阿尔特里亚大陆",tag:"🔥 热度 920000",img:"assets/images/longzhigu_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7259&promote_id=1778"},
+{g:"墨香情",slogan:"水墨江湖 · 自由兵器",tag:"🔥 热度 880000",img:"assets/images/moxiangqing_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7032&promote_id=1778"},
+{g:"荣耀出征卡点服",slogan:"经典奇迹MU 1.03H 点卡服",tag:"🔥 热度 860000",img:"assets/images/rongyao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwODgsNTA4NywyMjk2NjNd"},
+{g:"星辰变：归来",slogan:"阅文正版 · 修真MMO",tag:"🔥 热度 850000",img:"assets/images/xingchenbian_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7205&promote_id=1778"},
+{g:"千年盛世",slogan:"二十年前的那片江湖",tag:"🔥 热度 840000",img:"assets/images/qiannian_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwNzQsNTA3MywyMjk2NjNd"}
+];
+var cur=0,timer;
+var slidesEl=document.getElementById('slides'),dotsEl=document.getElementById('dots');
+function buildSlides(){
+  slidesEl.innerHTML=SLIDES.map(function(s,i){
+    return '<div class="slide'+(i===0?' on':'')+'" data-i="'+i+'">'+
+      '<div class="bg" style="background-image:url('+s.img+')"></div>'+
+      '<div class="veil"></div><div class="veil2"></div>'+
+      '<div class="slide-in">'+
+        '<span class="slide-tag">'+s.tag+'</span>'+
+        '<h1>'+s.g+'<br><span style="color:var(--accent2);font-size:.6em">'+s.slogan+'</span></h1>'+
+        '<div class="btns"><a class="btn btn-primary" href="'+s.url+'" target="_blank" rel="noopener">🎮 进入游戏</a>'+
+        '<a class="btn btn-ghost" href="#games">浏览全部</a></div>'+
+      '</div></div>';
+  }).join('');
+  dotsEl.innerHTML=SLIDES.map(function(_,i){return '<span class="'+(i===0?'on':'')+'" onclick="goSlide('+i+')"></span>'}).join('');
+}
+function goSlide(i){
+  var n=SLIDES.length;cur=(i+n)%n;
+  document.querySelectorAll('.slide').forEach(function(el){el.classList.toggle('on',+el.dataset.i===cur)});
+  document.querySelectorAll('.dots span').forEach(function(el,idx){el.classList.toggle('on',idx===cur)});
+}
+function moveSlide(d){goSlide(cur+d);restart()}
+function restart(){clearInterval(timer);timer=setInterval(function(){goSlide(cur+1)},5000)}
+buildSlides();restart();
+
+/* ===== 游戏网格 ===== */
+var TABS=[{k:"all",t:"全部游戏"},{k:"三九正版",t:"三九互娱正版"},{k:"传奇怀旧",t:"传奇怀旧"},{k:"奇迹MU",t:"奇迹MU / RO"},{k:"永恒岛",t:"永恒岛系列"},{k:"小小屠龙",t:"小小屠龙"},{k:"游昕经典",t:"游昕经典"}];
+var curTab="all";
+var tabsEl=document.getElementById('tabs'),gridEl=document.getElementById('gameGrid');
+function buildTabs(){
+  tabsEl.innerHTML=TABS.map(function(t){return '<span class="tab'+(t.k===curTab?' on':'')+'" data-k="'+t.k+'" onclick="setTab(\''+t.k+'\')">'+t.t+'</span>'}).join('');
+}
+function setTab(k){curTab=k;buildTabs();renderGames()}
+function renderGames(){
+  var list=curTab==="all"?GAMES:GAMES.filter(function(g){return g.grp===curTab});
+  gridEl.innerHTML=list.map(function(g){
+    return '<div class="gcard" onclick="window.open(\''+g.url+'\',\'_blank\')">'+
+      '<div class="cv"><img src="'+g.cover+'" alt="'+g.name+'" loading="lazy"><span class="badge">'+g.grp+'</span></div>'+
+      '<div class="bd"><div class="nm">'+g.name+'</div>'+
+      '<div class="ds">'+g.dev+' 出品 · 经典正版手游</div>'+
+      '<div class="ft"><span class="heat">🔥 '+fmtHeat(g.heat)+'</span><span class="go">进入游戏 ↗</span></div>'+
+      '</div></div>';
+  }).join('');
+}
+function fmtHeat(h){return h>=10000?(h/10000).toFixed(1)+'万':h}
+buildTabs();renderGames();
+
+/* ===== 攻略（直链 SEO 静态页） ===== */
+var guideEl=document.getElementById('guideGrid');
+guideEl.innerHTML=GUIDES.map(function(a){
+  return '<a class="acard" href="article/'+a.aid+'.html">'+
+    '<div class="top"><img src="'+a.cover+'" alt="'+a.g+'" loading="lazy"><div><div class="gn">'+a.g+'</div><div class="dt">'+a.date+'</div></div></div>'+
+    '<h3>'+a.title+'</h3><p>'+a.sum+'</p>'+
+    '<span class="rd">查看完整攻略 →</span></a>';
+}).join('');
+
+/* ===== 导航高亮 ===== */
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.querySelectorAll('.nav-links a').forEach(function(x){x.classList.remove('active')});
+    a.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
