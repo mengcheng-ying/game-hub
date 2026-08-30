@@ -98,7 +98,7 @@
   .gcard .cv{position:relative;aspect-ratio:16/10;overflow:hidden}
   .gcard .cv img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
   .gcard:hover .cv img{transform:scale(1.07)}
-  .gcard .cv .badge{position:absolute;top:10px;left:10px;padding:3px 10px;border-radius:99px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);font-size:.72rem;color:var(--accent2);font-weight:600}
+  .gcard .cv .badge{position:absolute;top:10px;left:10px;padding:3px 11px;border-radius:99px;background:rgba(0,0,0,.62);backdrop-filter:blur(4px);font-size:.82rem;color:#ffc940;font-weight:700;border:1px solid rgba(255,201,64,.5);letter-spacing:.5px}
   .gcard .bd{padding:14px 14px 16px;display:flex;flex-direction:column;flex:1}
   .gcard .nm{font-size:1rem;font-weight:800;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .gcard .ds{font-size:.78rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:12px;flex:1}
@@ -253,45 +253,45 @@
 <script>
 /* ===== 游戏数据 ===== */
 var GAMES=[
-{id:1,name:"龙之谷启程",dev:"三九互娱",cover:"assets/images/longzhigu_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7259&promote_id=1778",heat:920000,grp:"三九正版"},
-{id:2,name:"墨香情",dev:"三九互娱",cover:"assets/images/moxiangqing_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7032&promote_id=1778",heat:880000,grp:"三九正版"},
-{id:3,name:"星辰变：归来",dev:"江苏欢娱",cover:"assets/images/xingchenbian_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7205&promote_id=1778",heat:850000,grp:"三九正版"},
-{id:4,name:"飞飞：重逢",dev:"游昕网络",cover:"assets/images/feifei_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7012&promote_id=1778",heat:820000,grp:"游昕经典"},
-{id:5,name:"神泣：纷争",dev:"三九互娱",cover:"assets/images/shenqi_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7188&promote_id=1778",heat:790000,grp:"三九正版"},
-{id:6,name:"荣耀出征卡点服",dev:"安徽游昕",cover:"assets/images/rongyao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwODgsNTA4NywyMjk2NjNd",heat:860000,grp:"奇迹MU"},
-{id:7,name:"千年盛世：千年传奇版",dev:"安徽游昕",cover:"assets/images/qiannian_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwNzQsNTA3MywyMjk2NjNd",heat:840000,grp:"游昕经典"},
-{id:8,name:"龙城秘境：凤凰沉默",dev:"安徽游昕",cover:"assets/images/longcheng_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwNjMsNTA2MiwyMjk2NjNd",heat:830000,grp:"传奇怀旧"},
-{id:9,name:"剑与翼—经典复刻",dev:"安徽游昕",cover:"assets/images/jianyu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ5MzgsNDkzNywyMjk2NjNd",heat:810000,grp:"奇迹MU"},
-{id:10,name:"龙城秘境：觉醒合击",dev:"安徽游昕",cover:"assets/images/juexingheji_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ5MzYsNDkzNSwyMjk2NjNd",heat:800000,grp:"传奇怀旧"},
-{id:11,name:"小小屠龙：原始火龙",dev:"安徽游昕",cover:"assets/images/xiaoxiaotulong_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ4NDEsNDg0MCwyMjk2NjNd",heat:780000,grp:"小小屠龙"},
-{id:12,name:"荣耀出征",dev:"安徽游昕",cover:"assets/images/rongyao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ3MTksNDcxOCwyMjk2NjNd",heat:770000,grp:"奇迹MU"},
-{id:13,name:"龙城秘境：重返冰雪",dev:"安徽游昕",cover:"assets/images/longcheng_bingxue_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ2NTEsNDY1MCwyMjk2NjNd",heat:760000,grp:"传奇怀旧"},
-{id:14,name:"决战破晓",dev:"三九/游昕",cover:"assets/images/juezhan_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ1ODQsNDU4MywyMjk2NjNd",heat:750000,grp:"三九正版"},
-{id:15,name:"小小屠龙：幻变三职业",dev:"安徽游昕",cover:"assets/images/xxtl_huanbian_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ1MDksNDUwOCwyMjk2NjNd",heat:740000,grp:"小小屠龙"},
-{id:16,name:"小小屠龙：灵符自由版",dev:"安徽游昕",cover:"assets/images/xxtl_lingfu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ0MzgsNDQzNywyMjk2NjNd",heat:730000,grp:"小小屠龙"},
-{id:17,name:"小小屠龙：3D合击版",dev:"安徽游昕",cover:"assets/images/xxtl_3dheji_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzODYsNDM4NSwyMjk2NjNd",heat:720000,grp:"小小屠龙"},
-{id:18,name:"风暴远征：英雄年代联动版",dev:"安徽游昕",cover:"assets/images/fengbao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzAsNDM2OSwyMjk2NjNd",heat:710000,grp:"游昕经典"},
-{id:19,name:"永恒岛：高清重制版",dev:"安徽游昕",cover:"assets/images/yonghengdao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzNDYsNDM0NSwyMjk2NjNd",heat:700000,grp:"永恒岛"},
-{id:20,name:"魔力宝贝回忆十宠版",dev:"安徽游昕",cover:"assets/images/molibaobei_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzMzgsNDMzNywyMjk2NjNd",heat:690000,grp:"游昕经典"},
-{id:21,name:"武林外传：十年之约",dev:"安徽游昕",cover:"assets/images/wulin_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzNzEsNDMyOCwyMjk2NjNd",heat:680000,grp:"游昕经典"},
-{id:22,name:"热江：武林版",dev:"安徽游昕",cover:"assets/images/rejiang_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzNjMsNDMwOSwyMjk2NjNd",heat:670000,grp:"游昕经典"},
-{id:23,name:"飞飞：重逢",dev:"安徽游昕",cover:"assets/images/feifei2_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQyNjQsNDI2MywyMjk2NjNd",heat:660000,grp:"游昕经典"},
-{id:24,name:"小小屠龙：卡点重置版",dev:"安徽游昕",cover:"assets/images/xxtl_kadian_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQxMTEsNDExMCwyMjk2NjNd",heat:650000,grp:"小小屠龙"},
-{id:25,name:"奇迹世界：起源",dev:"安徽游昕",cover:"assets/images/qijishijie_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQwODgsNDA4NywyMjk2NjNd",heat:640000,grp:"游昕经典"},
-{id:31,name:"天天龙族怀旧服",dev:"安徽游昕",cover:"assets/images/tiantianlongzu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQwMTUsNDAxNCwyMjk2NjNd",heat:630000,grp:"游昕经典"},
-{id:32,name:"寻梦丝路",dev:"安徽游昕",cover:"assets/images/xunmengsilu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQxNjUsMzkyMSwyMjk2NjNd",heat:620000,grp:"游昕经典"},
-{id:33,name:"小小屠龙：冰雪骑战",dev:"安徽游昕",cover:"assets/images/xxtl_bingxueqizhan_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzM4NjgsMzg2NywyMjk2NjNd",heat:610000,grp:"小小屠龙"},
-{id:34,name:"烈火屠龙：美杜莎卡点服",dev:"安徽游昕",cover:"assets/images/liehuotulong_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzM3NTEsMzc1MCwyMjk2NjNd",heat:600000,grp:"传奇怀旧"},
-{id:35,name:"永恒岛：怀旧版",dev:"安徽游昕",cover:"assets/images/yonghengdao_huaijiu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzM0MjEsMzM5NiwyMjk2NjNd",heat:590000,grp:"永恒岛"},
-{id:36,name:"修仙家族模拟器2",dev:"安徽游昕",cover:"assets/images/xiuxianjiazu2_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzMzODAsMzM3OSwyMjk2NjNd",heat:580000,grp:"游昕经典"},
-{id:37,name:"义战龙城：3D纯净服",dev:"安徽游昕",cover:"assets/images/yizhanlongcheng_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzI4MDIsMjgwMSwyMjk2NjNd",heat:570000,grp:"传奇怀旧"},
-{id:38,name:"热江：全新玩法",dev:"安徽游昕",cover:"assets/images/rejiang_xinwanfa_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzI3MTMsMjc3NiwyMjk2NjNd",heat:560000,grp:"游昕经典"},
-{id:39,name:"巴风特之怒：RO怀旧",dev:"安徽游昕",cover:"assets/images/bafengte_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzI1NjEsMjM2OSwyMjk2NjNd",heat:550000,grp:"游昕经典"},
-{id:40,name:"千年盛世：原始千年",dev:"安徽游昕",cover:"assets/images/qiannian_yuanshi_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzEzNjMsMTM2MiwyMjk2NjNd",heat:540000,grp:"游昕经典"},
-{id:41,name:"永恒岛：彩虹回忆",dev:"安徽游昕",cover:"assets/images/yonghengdao_caihong_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzEyMTgsMTIxNywyMjk2NjNd",heat:530000,grp:"永恒岛"},
-{id:42,name:"金装裁决",dev:"安徽游昕",cover:"assets/images/jinzhuangcaijue_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzEwNzgsMTA3NywyMjk2NjNd",heat:520000,grp:"传奇怀旧"},
-{id:43,name:"屠龙决战沙城：传奇三光通版",dev:"安徽游昕",cover:"assets/images/tulongjuezhan_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzczMCw3MjksMjI5NjYzXQ==",heat:510000,grp:"传奇怀旧"},
-{id:44,name:"热血传说：复古传奇",dev:"安徽游昕",cover:"assets/images/rexuechuanshuo_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzM2OCwzNjcsMjI5NjYzXQ==",heat:500000,grp:"传奇怀旧"}
+{id:1,name:"龙之谷启程",dev:"三九互娱",cover:"assets/images/longzhigu_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7259&promote_id=1778",heat:920000,grp:"三九正版",sc:"9.0"},
+{id:2,name:"墨香情",dev:"三九互娱",cover:"assets/images/moxiangqing_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7032&promote_id=1778",heat:880000,grp:"三九正版",sc:"9.2"},
+{id:3,name:"星辰变：归来",dev:"江苏欢娱",cover:"assets/images/xingchenbian_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7205&promote_id=1778",heat:850000,grp:"三九正版",sc:"8.4"},
+{id:4,name:"飞飞：重逢",dev:"游昕网络",cover:"assets/images/feifei_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7012&promote_id=1778",heat:820000,grp:"游昕经典",sc:"8.3"},
+{id:5,name:"神泣：纷争",dev:"三九互娱",cover:"assets/images/shenqi_cover.jpg",url:"https://sdkn-ldy.zhangyu39.com/?app_id=7188&promote_id=1778",heat:790000,grp:"三九正版",sc:"8.6"},
+{id:6,name:"荣耀出征卡点服",dev:"安徽游昕",cover:"assets/images/rongyao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwODgsNTA4NywyMjk2NjNd",heat:860000,grp:"奇迹MU",sc:"8.1"},
+{id:7,name:"千年盛世：千年传奇版",dev:"安徽游昕",cover:"assets/images/qiannian_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwNzQsNTA3MywyMjk2NjNd",heat:840000,grp:"游昕经典",sc:"8.2"},
+{id:8,name:"龙城秘境：凤凰沉默",dev:"安徽游昕",cover:"assets/images/longcheng_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwNjMsNTA2MiwyMjk2NjNd",heat:830000,grp:"传奇怀旧",sc:"7.6"},
+{id:9,name:"剑与翼—经典复刻",dev:"安徽游昕",cover:"assets/images/jianyu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ5MzgsNDkzNywyMjk2NjNd",heat:810000,grp:"奇迹MU",sc:"7.8"},
+{id:10,name:"龙城秘境：觉醒合击",dev:"安徽游昕",cover:"assets/images/juexingheji_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ5MzYsNDkzNSwyMjk2NjNd",heat:800000,grp:"传奇怀旧",sc:"7.5"},
+{id:11,name:"小小屠龙：原始火龙",dev:"安徽游昕",cover:"assets/images/xiaoxiaotulong_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ4NDEsNDg0MCwyMjk2NjNd",heat:780000,grp:"小小屠龙",sc:"7.4"},
+{id:12,name:"荣耀出征",dev:"安徽游昕",cover:"assets/images/rongyao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ3MTksNDcxOCwyMjk2NjNd",heat:770000,grp:"奇迹MU",sc:"8.0"},
+{id:13,name:"龙城秘境：重返冰雪",dev:"安徽游昕",cover:"assets/images/longcheng_bingxue_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ2NTEsNDY1MCwyMjk2NjNd",heat:760000,grp:"传奇怀旧",sc:"7.7"},
+{id:14,name:"决战破晓",dev:"三九/游昕",cover:"assets/images/juezhan_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ1ODQsNDU4MywyMjk2NjNd",heat:750000,grp:"三九正版",sc:"7.9"},
+{id:15,name:"小小屠龙：幻变三职业",dev:"安徽游昕",cover:"assets/images/xxtl_huanbian_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ1MDksNDUwOCwyMjk2NjNd",heat:740000,grp:"小小屠龙",sc:"7.4"},
+{id:16,name:"小小屠龙：灵符自由版",dev:"安徽游昕",cover:"assets/images/xxtl_lingfu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ0MzgsNDQzNywyMjk2NjNd",heat:730000,grp:"小小屠龙",sc:"7.3"},
+{id:17,name:"小小屠龙：3D合击版",dev:"安徽游昕",cover:"assets/images/xxtl_3dheji_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzODYsNDM4NSwyMjk2NjNd",heat:720000,grp:"小小屠龙",sc:"7.5"},
+{id:18,name:"风暴远征：英雄年代联动版",dev:"安徽游昕",cover:"assets/images/fengbao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzAsNDM2OSwyMjk2NjNd",heat:710000,grp:"游昕经典",sc:"7.8"},
+{id:19,name:"永恒岛：高清重制版",dev:"安徽游昕",cover:"assets/images/yonghengdao_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzNDYsNDM0NSwyMjk2NjNd",heat:700000,grp:"永恒岛",sc:"8.3"},
+{id:20,name:"魔力宝贝回忆十宠版",dev:"安徽游昕",cover:"assets/images/molibaobei_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzMzgsNDMzNywyMjk2NjNd",heat:690000,grp:"游昕经典",sc:"8.1"},
+{id:21,name:"武林外传：十年之约",dev:"安徽游昕",cover:"assets/images/wulin_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzNzEsNDMyOCwyMjk2NjNd",heat:680000,grp:"游昕经典",sc:"8.5"},
+{id:22,name:"热江：武林版",dev:"安徽游昕",cover:"assets/images/rejiang_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzNjMsNDMwOSwyMjk2NjNd",heat:670000,grp:"游昕经典",sc:"7.6"},
+{id:23,name:"飞飞：重逢",dev:"安徽游昕",cover:"assets/images/feifei2_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQyNjQsNDI2MywyMjk2NjNd",heat:660000,grp:"游昕经典",sc:"8.0"},
+{id:24,name:"小小屠龙：卡点重置版",dev:"安徽游昕",cover:"assets/images/xxtl_kadian_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQxMTEsNDExMCwyMjk2NjNd",heat:650000,grp:"小小屠龙",sc:"7.4"},
+{id:25,name:"奇迹世界：起源",dev:"安徽游昕",cover:"assets/images/qijishijie_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQwODgsNDA4NywyMjk2NjNd",heat:640000,grp:"游昕经典",sc:"8.4"},
+{id:31,name:"天天龙族怀旧服",dev:"安徽游昕",cover:"assets/images/tiantianlongzu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQwMTUsNDAxNCwyMjk2NjNd",heat:630000,grp:"游昕经典",sc:"7.7"},
+{id:32,name:"寻梦丝路",dev:"安徽游昕",cover:"assets/images/xunmengsilu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzQxNjUsMzkyMSwyMjk2NjNd",heat:620000,grp:"游昕经典",sc:"7.8"},
+{id:33,name:"小小屠龙：冰雪骑战",dev:"安徽游昕",cover:"assets/images/xxtl_bingxueqizhan_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzM4NjgsMzg2NywyMjk2NjNd",heat:610000,grp:"小小屠龙",sc:"7.5"},
+{id:34,name:"烈火屠龙：美杜莎卡点服",dev:"安徽游昕",cover:"assets/images/liehuotulong_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzM3NTEsMzc1MCwyMjk2NjNd",heat:600000,grp:"传奇怀旧",sc:"7.6"},
+{id:35,name:"永恒岛：怀旧版",dev:"安徽游昕",cover:"assets/images/yonghengdao_huaijiu_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzM0MjEsMzM5NiwyMjk2NjNd",heat:590000,grp:"永恒岛",sc:"8.0"},
+{id:36,name:"修仙家族模拟器2",dev:"安徽游昕",cover:"assets/images/xiuxianjiazu2_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzMzODAsMzM3OSwyMjk2NjNd",heat:580000,grp:"游昕经典",sc:"8.2"},
+{id:37,name:"义战龙城：3D纯净服",dev:"安徽游昕",cover:"assets/images/yizhanlongcheng_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzI4MDIsMjgwMSwyMjk2NjNd",heat:570000,grp:"传奇怀旧",sc:"7.7"},
+{id:38,name:"热江：全新玩法",dev:"安徽游昕",cover:"assets/images/rejiang_xinwanfa_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzI3MTMsMjc3NiwyMjk2NjNd",heat:560000,grp:"游昕经典",sc:"7.5"},
+{id:39,name:"巴风特之怒：RO怀旧",dev:"安徽游昕",cover:"assets/images/bafengte_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzI1NjEsMjM2OSwyMjk2NjNd",heat:550000,grp:"游昕经典",sc:"8.5"},
+{id:40,name:"千年盛世：原始千年",dev:"安徽游昕",cover:"assets/images/qiannian_yuanshi_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzEzNjMsMTM2MiwyMjk2NjNd",heat:540000,grp:"游昕经典",sc:"8.1"},
+{id:41,name:"永恒岛：彩虹回忆",dev:"安徽游昕",cover:"assets/images/yonghengdao_caihong_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzEyMTgsMTIxNywyMjk2NjNd",heat:530000,grp:"永恒岛",sc:"8.0"},
+{id:42,name:"金装裁决",dev:"安徽游昕",cover:"assets/images/jinzhuangcaijue_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzEwNzgsMTA3NywyMjk2NjNd",heat:520000,grp:"传奇怀旧",sc:"7.6"},
+{id:43,name:"屠龙决战沙城：传奇三光通版",dev:"安徽游昕",cover:"assets/images/tulongjuezhan_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzczMCw3MjksMjI5NjYzXQ==",heat:510000,grp:"传奇怀旧",sc:"7.5"},
+{id:44,name:"热血传说：复古传奇",dev:"安徽游昕",cover:"assets/images/rexuechuanshuo_cover.jpg",url:"https://229663.youxin75.com/qudao.php?s=/Download/f/WzM2OCwzNjcsMjI5NjYzXQ==",heat:500000,grp:"传奇怀旧",sc:"7.4"}
 ];
 
 /* ===== 攻略数据（链接到 SEO 静态页） ===== */
@@ -353,7 +353,7 @@ function renderGames(){
   var list=curTab==="all"?GAMES:GAMES.filter(function(g){return g.grp===curTab});
   gridEl.innerHTML=list.map(function(g){
     return '<div class="gcard" onclick="window.open(\''+g.url+'\',\'_blank\')">'+
-      '<div class="cv"><img src="'+g.cover+'" alt="'+g.name+'" loading="lazy"><span class="badge">'+g.grp+'</span></div>'+
+      '<div class="cv"><img src="'+g.cover+'" alt="'+g.name+'" loading="lazy"><span class="badge">★ '+g.sc+'</span></div>'+
       '<div class="bd"><div class="nm">'+g.name+'</div>'+
       '<div class="ds">'+g.dev+' 出品 · 经典正版手游</div>'+
       '<div class="ft"><span class="heat">🔥 '+fmtHeat(g.heat)+'</span><span class="go">进入游戏 ↗</span></div>'+
