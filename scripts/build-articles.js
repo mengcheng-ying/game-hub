@@ -14,7 +14,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const SITE = 'https://mengchen.me';
+const SITE = 'https://fmbly.com';
 const OUT_DIR = path.join(ROOT, 'article');
 const TODAY = new Date().toISOString().slice(0, 10);
 
@@ -73,7 +73,7 @@ function renderFooter() {
 <footer class="seo-footer">
   <a href="/">首页</a>
   <a href="/#guides">攻略中心</a>
-  <a href="https://mengchen.me" rel="noopener">GAMEHUB 游戏整合站</a>
+  <a href="https://fmbly.com" rel="noopener">GAMEHUB 游戏整合站</a>
 </footer>`;
 }
 

@@ -9,7 +9,7 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
 
-const SITE = 'mengchen.me';
+const SITE = 'fmbly.com';
 const TOKEN = process.env.BAIDU_TOKEN;
 const FORCE_ALL = process.argv.includes('--all');
 

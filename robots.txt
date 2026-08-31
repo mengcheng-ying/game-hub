@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-Sitemap: https://mengchen.me/sitemap.xml
+Sitemap: https://fmbly.com/sitemap.xml
 
 User-agent: Baiduspider
 Allow: /
