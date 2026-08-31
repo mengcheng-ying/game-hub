@@ -6,13 +6,14 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: '推送模式'
+        description: '推送模式：incremental=增量(默认) / full=全量 / onebyone=逐条推到配额上限'
         required: false
         default: 'incremental'
         type: choice
         options:
           - incremental
           - full
+          - onebyone
 
 jobs:
   baidu-push:
@@ -27,8 +28,14 @@ jobs:
         env:
           BAIDU_TOKEN: ${{ secrets.BAIDU_PUSH_TOKEN }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.mode }}" = "full" ]; then
-            node .github/scripts/baidu-push.js --all
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ "${{ inputs.mode }}" = "full" ]; then
+              node .github/scripts/baidu-push.js --all
+            elif [ "${{ inputs.mode }}" = "onebyone" ]; then
+              node .github/scripts/baidu-push-onebyone.js
+            else
+              node .github/scripts/baidu-push.js
+            fi
           else
             node .github/scripts/baidu-push.js
           fi
