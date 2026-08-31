@@ -81,7 +81,7 @@ const sitemapUrls = [];
 
 articles.forEach((a, idx) => {
   const game = a.gameId ? gameById[a.gameId] : null;
-  const url = SITE + '/article/' + a.id + '.html';
+  const url = SITE + '/article/' + a.id;
   const canonical = url;
   sitemapUrls.push({
     loc: url,
@@ -103,7 +103,7 @@ articles.forEach((a, idx) => {
     ? `<h2 class="seo-related-title">更多攻略</h2>
        <div class="seo-related-list">
        ${related.map(r => `
-         <a class="seo-related-item" href="/article/${r.id}.html">
+         <a class="seo-related-item" href="/article/${r.id}">
            <span class="seo-related-cat">${esc(r.category || '攻略')}</span>
            <span class="seo-related-name">${esc(r.title)}</span>
          </a>`).join('')}
