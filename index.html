@@ -213,8 +213,35 @@
 .gm-menu-item:hover{background:rgba(99,102,241,.18);color:#fff}
 .badge-plat{position:absolute;top:8px;left:8px;background:linear-gradient(135deg,#06b6d4 0%,#8b5cf6 100%);color:#fff;font-size:.7rem;padding:3px 8px;border-radius:6px;font-weight:600;box-shadow:0 2px 8px rgba(6,182,212,.4)}
 @media(max-width:480px){
-  .gm-actions{flex-direction:column}
-  .gm-btn,.gm-dropdown{width:100%;min-width:0}
+    .gm-actions{flex-direction:column}
+    .gm-btn,.gm-dropdown{width:100%;min-width:0}
+  }
+
+/* ===== 官网资讯 / 公告 ===== */
+.notice-list{display:flex;flex-direction:column;gap:14px;max-width:920px;margin:0 auto}
+.notice-item{position:relative;background:linear-gradient(135deg,rgba(99,102,241,.10) 0%,rgba(139,92,246,.06) 100%);border:1px solid rgba(99,102,241,.22);border-radius:14px;padding:20px 22px;display:flex;gap:18px;align-items:flex-start;transition:all .25s ease}
+.notice-item:hover{transform:translateY(-2px);border-color:rgba(99,102,241,.5);box-shadow:0 8px 24px rgba(99,102,241,.18)}
+.notice-item.urgent{border-color:rgba(251,191,36,.45);background:linear-gradient(135deg,rgba(251,191,36,.12) 0%,rgba(99,102,241,.08) 100%)}
+.notice-item.urgent::before{content:"NEW";position:absolute;top:-10px;right:18px;background:linear-gradient(135deg,#f59e0b 0%,#ef4444 100%);color:#fff;font-size:.7rem;font-weight:800;padding:3px 10px;border-radius:12px;letter-spacing:1px;box-shadow:0 4px 12px rgba(239,68,68,.4)}
+.notice-date{flex-shrink:0;width:80px;text-align:center;background:rgba(99,102,241,.15);border-radius:10px;padding:10px 6px;border:1px solid rgba(99,102,241,.25)}
+.notice-date .day{display:block;font-size:1.6rem;font-weight:800;color:#fff;line-height:1}
+.notice-date .ym{display:block;font-size:.7rem;color:#9aa3bd;margin-top:4px;letter-spacing:.5px}
+.notice-body{flex:1;min-width:0}
+.notice-tags{margin-bottom:6px;display:flex;gap:6px;flex-wrap:wrap}
+.notice-tag{display:inline-block;font-size:.7rem;padding:2px 9px;border-radius:6px;font-weight:600}
+.notice-tag-game{background:rgba(99,102,241,.2);color:#a5b4fc;border:1px solid rgba(99,102,241,.35)}
+.notice-tag-type{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.35)}
+.notice-title{font-size:1.05rem;font-weight:700;color:#fff;margin:2px 0 8px;line-height:1.4}
+.notice-content{font-size:.88rem;color:#c7cee0;line-height:1.7;margin:0}
+.notice-actions{margin-top:12px;display:flex;gap:8px}
+.notice-btn{display:inline-block;padding:7px 16px;font-size:.82rem;font-weight:600;border-radius:8px;text-decoration:none;background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 100%);color:#fff;transition:all .2s}
+.notice-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(99,102,241,.45)}
+@media(max-width:560px){
+  .notice-item{flex-direction:column;gap:10px;padding:16px}
+  .notice-date{width:100%;display:flex;align-items:center;gap:8px;justify-content:center;padding:6px 10px}
+  .notice-date .day{font-size:1rem;display:inline}
+  .notice-date .ym{margin:0;display:inline}
+  .notice-date .day::after{content:" · ";color:#9aa3bd;margin:0 2px}
 }
 </style>
 </head>
@@ -226,6 +253,7 @@
     <div class="nav-links" id="navLinks">
       <a href="#hero" class="active">首页</a>
       <a href="#games">游戏大厅</a>
+      <a href="#notices">官网资讯</a>
       <a href="#guides">游戏攻略</a>
       <a href="#faq">常见问题</a>
     </div>
@@ -261,6 +289,18 @@
     </div>
     <div class="tabs" id="tabs"><span class="tab on" data-k="all" onclick="setTab('all')">全部游戏</span><span class="tab" data-k="三九正版" onclick="setTab('三九正版')">三九互娱正版</span><span class="tab" data-k="传奇怀旧" onclick="setTab('传奇怀旧')">传奇怀旧</span><span class="tab" data-k="奇迹MU" onclick="setTab('奇迹MU')">奇迹MU / RO</span><span class="tab" data-k="永恒岛" onclick="setTab('永恒岛')">永恒岛系列</span><span class="tab" data-k="小小屠龙" onclick="setTab('小小屠龙')">小小屠龙</span><span class="tab" data-k="游昕经典" onclick="setTab('游昕经典')">游昕经典</span></div>
     <div class="game-grid" id="gameGrid"><div class="gcard" onclick="window.open('https://apps.bytesfield.com/download/extend/cur/42dbeb0e42bcb0e1321fd4e74239400cddd88404/1778','_blank')"><div class="cv"><img src="assets/images/wulin_cover.jpg" alt="武林外传：十年之约" loading="lazy"><span class="badge">★ 9.2</span></div><div class="bd"><div class="nm">武林外传：十年之约</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 93.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://sdkn-ldy.zhangyu39.com/?app_id=7259&amp;promote_id=1778','_blank')"><div class="cv"><img src="assets/images/longzhigu_cover.jpg" alt="龙之谷启程" loading="lazy"><span class="badge">★ 9.0</span></div><div class="bd"><div class="nm">龙之谷启程</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 92.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://sdkn-ldy.zhangyu39.com/?app_id=7032&amp;promote_id=1778','_blank')"><div class="cv"><img src="assets/images/moxiangqing_cover.jpg" alt="墨香情" loading="lazy"><span class="badge">★ 9.2</span></div><div class="bd"><div class="nm">墨香情</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 88.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://sdkn-ldy.zhangyu39.com/?app_id=7205&amp;promote_id=1778','_blank')"><div class="cv"><img src="assets/images/xingchenbian_cover.jpg" alt="星辰变：归来" loading="lazy"><span class="badge">★ 8.4</span></div><div class="bd"><div class="nm">星辰变：归来</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 85.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://sdkn-ldy.zhangyu39.com/?app_id=7012&amp;promote_id=1778','_blank')"><div class="cv"><img src="assets/images/feifei_cover.jpg" alt="飞飞：重逢" loading="lazy"><span class="badge">★ 8.3</span></div><div class="bd"><div class="nm">飞飞：重逢</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 82.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://sdkn-ldy.zhangyu39.com/?app_id=7188&amp;promote_id=1778','_blank')"><div class="cv"><img src="assets/images/shenqi_cover.jpg" alt="神泣：纷争" loading="lazy"><span class="badge">★ 8.6</span></div><div class="bd"><div class="nm">神泣：纷争</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 79.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwODgsNTA4NywyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/rongyao_cover.jpg" alt="荣耀出征卡点服" loading="lazy"><span class="badge">★ 8.1</span></div><div class="bd"><div class="nm">荣耀出征卡点服</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 86.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwNzQsNTA3MywyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/qiannian_cover.jpg" alt="千年盛世：千年传奇版" loading="lazy"><span class="badge">★ 8.2</span></div><div class="bd"><div class="nm">千年盛世：千年传奇版</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 84.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwNjMsNTA2MiwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/longcheng_cover.jpg" alt="龙城秘境：凤凰沉默" loading="lazy"><span class="badge">★ 7.6</span></div><div class="bd"><div class="nm">龙城秘境：凤凰沉默</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 83.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ5MzgsNDkzNywyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/jianyu_cover.jpg" alt="剑与翼—经典复刻" loading="lazy"><span class="badge">★ 7.8</span></div><div class="bd"><div class="nm">剑与翼—经典复刻</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 81.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ5MzYsNDkzNSwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/juexingheji_cover.jpg" alt="龙城秘境：觉醒合击" loading="lazy"><span class="badge">★ 7.5</span></div><div class="bd"><div class="nm">龙城秘境：觉醒合击</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 80.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ4NDEsNDg0MCwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/xiaoxiaotulong_cover.jpg" alt="小小屠龙：原始火龙" loading="lazy"><span class="badge">★ 7.4</span></div><div class="bd"><div class="nm">小小屠龙：原始火龙</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 78.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ3MTksNDcxOCwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/rongyao_cover.jpg" alt="荣耀出征" loading="lazy"><span class="badge">★ 8.0</span></div><div class="bd"><div class="nm">荣耀出征</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 77.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ2NTEsNDY1MCwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/longcheng_bingxue_cover.jpg" alt="龙城秘境：重返冰雪" loading="lazy"><span class="badge">★ 7.7</span></div><div class="bd"><div class="nm">龙城秘境：重返冰雪</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 76.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ1ODQsNDU4MywyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/juezhan_cover.jpg" alt="决战破晓" loading="lazy"><span class="badge">★ 7.9</span></div><div class="bd"><div class="nm">决战破晓</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 75.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ1MDksNDUwOCwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/xxtl_huanbian_cover.jpg" alt="小小屠龙：幻变三职业" loading="lazy"><span class="badge">★ 7.4</span></div><div class="bd"><div class="nm">小小屠龙：幻变三职业</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 74.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQ0MzgsNDQzNywyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/xxtl_lingfu_cover.jpg" alt="小小屠龙：灵符自由版" loading="lazy"><span class="badge">★ 7.3</span></div><div class="bd"><div class="nm">小小屠龙：灵符自由版</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 73.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzODYsNDM4NSwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/xxtl_3dheji_cover.jpg" alt="小小屠龙：3D合击版" loading="lazy"><span class="badge">★ 7.5</span></div><div class="bd"><div class="nm">小小屠龙：3D合击版</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 72.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzAsNDM2OSwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/fengbao_cover.jpg" alt="风暴远征：英雄年代联动版" loading="lazy"><span class="badge">★ 7.8</span></div><div class="bd"><div class="nm">风暴远征：英雄年代联动版</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 71.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzNDYsNDM0NSwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/yonghengdao_cover.jpg" alt="永恒岛：高清重制版" loading="lazy"><span class="badge">★ 8.3</span></div><div class="bd"><div class="nm">永恒岛：高清重制版</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 70.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzMzgsNDMzNywyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/molibaobei_cover.jpg" alt="魔力宝贝回忆十宠版" loading="lazy"><span class="badge">★ 8.1</span></div><div class="bd"><div class="nm">魔力宝贝回忆十宠版</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 69.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQzNjMsNDMwOSwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/rejiang_cover.jpg" alt="热江：武林版" loading="lazy"><span class="badge">★ 7.6</span></div><div class="bd"><div class="nm">热江：武林版</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 67.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQyNjQsNDI2MywyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/feifei2_cover.jpg" alt="飞飞：重逢" loading="lazy"><span class="badge">★ 8.0</span></div><div class="bd"><div class="nm">飞飞：重逢</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 66.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQxMTEsNDExMCwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/xxtl_kadian_cover.jpg" alt="小小屠龙：卡点重置版" loading="lazy"><span class="badge">★ 7.4</span></div><div class="bd"><div class="nm">小小屠龙：卡点重置版</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 65.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQwODgsNDA4NywyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/qijishijie_cover.jpg" alt="奇迹世界：起源" loading="lazy"><span class="badge">★ 8.4</span></div><div class="bd"><div class="nm">奇迹世界：起源</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 64.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQwMTUsNDAxNCwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/tiantianlongzu_cover.jpg" alt="天天龙族怀旧服" loading="lazy"><span class="badge">★ 7.7</span></div><div class="bd"><div class="nm">天天龙族怀旧服</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 63.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzQxNjUsMzkyMSwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/xunmengsilu_cover.jpg" alt="寻梦丝路" loading="lazy"><span class="badge">★ 7.8</span></div><div class="bd"><div class="nm">寻梦丝路</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 62.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzM4NjgsMzg2NywyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/xxtl_bingxueqizhan_cover.jpg" alt="小小屠龙：冰雪骑战" loading="lazy"><span class="badge">★ 7.5</span></div><div class="bd"><div class="nm">小小屠龙：冰雪骑战</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 61.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzM3NTEsMzc1MCwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/liehuotulong_cover.jpg" alt="烈火屠龙：美杜莎卡点服" loading="lazy"><span class="badge">★ 7.6</span></div><div class="bd"><div class="nm">烈火屠龙：美杜莎卡点服</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 60.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzM0MjEsMzM5NiwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/yonghengdao_huaijiu_cover.jpg" alt="永恒岛：怀旧版" loading="lazy"><span class="badge">★ 8.0</span></div><div class="bd"><div class="nm">永恒岛：怀旧版</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 59.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzMzODAsMzM3OSwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/xiuxianjiazu2_cover.jpg" alt="修仙家族模拟器2" loading="lazy"><span class="badge">★ 8.2</span></div><div class="bd"><div class="nm">修仙家族模拟器2</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 58.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzI4MDIsMjgwMSwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/yizhanlongcheng_cover.jpg" alt="义战龙城：3D纯净服" loading="lazy"><span class="badge">★ 7.7</span></div><div class="bd"><div class="nm">义战龙城：3D纯净服</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 57.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzI3MTMsMjc3NiwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/rejiang_xinwanfa_cover.jpg" alt="热江：全新玩法" loading="lazy"><span class="badge">★ 7.5</span></div><div class="bd"><div class="nm">热江：全新玩法</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 56.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzI1NjEsMjM2OSwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/bafengte_cover.jpg" alt="巴风特之怒：RO怀旧" loading="lazy"><span class="badge">★ 8.5</span></div><div class="bd"><div class="nm">巴风特之怒：RO怀旧</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 55.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzEzNjMsMTM2MiwyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/qiannian_yuanshi_cover.jpg" alt="千年盛世：原始千年" loading="lazy"><span class="badge">★ 8.1</span></div><div class="bd"><div class="nm">千年盛世：原始千年</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 54.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzEyMTgsMTIxNywyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/yonghengdao_caihong_cover.jpg" alt="永恒岛：彩虹回忆" loading="lazy"><span class="badge">★ 8.0</span></div><div class="bd"><div class="nm">永恒岛：彩虹回忆</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 53.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzEwNzgsMTA3NywyMjk2NjNd','_blank')"><div class="cv"><img src="assets/images/jinzhuangcaijue_cover.jpg" alt="金装裁决" loading="lazy"><span class="badge">★ 7.6</span></div><div class="bd"><div class="nm">金装裁决</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 52.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzczMCw3MjksMjI5NjYzXQ==','_blank')"><div class="cv"><img src="assets/images/tulongjuezhan_cover.jpg" alt="屠龙决战沙城：传奇三光通版" loading="lazy"><span class="badge">★ 7.5</span></div><div class="bd"><div class="nm">屠龙决战沙城：传奇三光通版</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 51.0万</span><span class="go">进入游戏 ↗</span></div></div></div><div class="gcard" onclick="window.open('https://229663.youxin75.com/qudao.php?s=/Download/f/WzM2OCwzNjcsMjI5NjYzXQ==','_blank')"><div class="cv"><img src="assets/images/rexuechuanshuo_cover.jpg" alt="热血传说：复古传奇" loading="lazy"><span class="badge">★ 7.4</span></div><div class="bd"><div class="nm">热血传说：复古传奇</div><div class="ds">经典正版手游</div><div class="ft"><span class="heat">🔥 50.0万</span><span class="go">进入游戏 ↗</span></div></div></div></div>
+  </div>
+</section>
+
+<!-- ===== 官网资讯 / 公告 ===== -->
+<section class="sec" id="notices" style="background:linear-gradient(180deg,var(--bg1) 0%,var(--bg2) 100%);padding-top:48px;padding-bottom:48px">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">NOTICES</span>
+      <h2>官网资讯</h2>
+      <p>最新开区 / 版本更新 / 活动福利，第一时间通知</p>
+    </div>
+    <div class="notice-list" id="noticeList"></div>
   </div>
 </section>
 
@@ -518,8 +558,55 @@ document.addEventListener('click',function(e){
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape')closeGameModal();
 });
+
+/* ===== 官网资讯 / 公告 ===== */
+// 公告数据：内嵌版（和 data/notices.js 同步；改 data/notices.js 后这里也要改）
+var NOTICES=[
+    {
+      "id": "wulin-2026-09-08-g3",
+      "game": "武林外传：十年之约",
+      "gameId": 21,
+      "type": "开区",
+      "title": "【开区通知】\"G3.西凉河畔\"9月8日 10:00 开启！",
+      "content": "《武林外传：十年之约》绿色版新服「G3.西凉河畔」将于 9月8日（明天）10:00 准时开启。诚邀各位侠客重返七侠镇，再续江湖情缘！新服开启首日更有海量福利：登录即送橙色伙伴、转职卡、绑元大礼包，组队副本双倍掉落，等你来战！",
+      "date": "2026-09-07",
+      "urgent": true
+    }
+  ];
+function renderNotices(){
+  var el=document.getElementById('noticeList');
+  if(!el)return;
+  if(!NOTICES.length){el.innerHTML='<p style="text-align:center;color:#9aa3bd;padding:40px 0">暂无公告</p>';return;}
+  el.innerHTML=NOTICES.map(function(n){
+    var d=n.date?(n.date+'').split('-'):[];
+    var day=d[2]||'';
+    var ym=d[0]&&d[1]?(d[0]+'-'+d[1]):'';
+    var game=n.game?findGame(n.gameId):null;
+    var gameBtn='';
+    if(game){
+      var hasAndroid=game.androidUrl&&game.androidUrl!=='';
+      var hasIos=game.iosUrl&&game.iosUrl!=='';
+      gameBtn='<div class="notice-actions"><a class="notice-btn" href="'+game.url+'" target="_blank" rel="noopener">进入官网 ↗</a>'+
+        (hasAndroid?'<a class="notice-btn" style="background:linear-gradient(135deg,#10b981 0%,#06b6d4 100%)" href="'+game.androidUrl+'" target="_blank" rel="noopener">🤖 安卓下载</a>':'')+
+        (hasIos?'<a class="notice-btn" style="background:linear-gradient(135deg,#a855f7 0%,#ec4899 100%)" href="'+game.iosUrl+'" target="_blank" rel="noopener">🍎 苹果下载</a>':'')+
+        '</div>';
+    }
+    return '<div class="notice-item'+(n.urgent?' urgent':'')+'">'+
+      '<div class="notice-date"><span class="day">'+day+'</span><span class="ym">'+ym+'</span></div>'+
+      '<div class="notice-body">'+
+        '<div class="notice-tags">'+
+          (n.game?'<span class="notice-tag notice-tag-game">🎮 '+n.game+'</span>':'')+
+          (n.type?'<span class="notice-tag notice-tag-type">'+n.type+'</span>':'')+
+        '</div>'+
+        '<h3 class="notice-title">'+n.title+'</h3>'+
+        '<p class="notice-content">'+n.content+'</p>'+
+        gameBtn+
+      '</div>'+
+    '</div>';
+  }).join('');
+}
 function fmtHeat(h){return h>=10000?(h/10000).toFixed(1)+'万':h}
-buildTabs();renderGames();
+buildTabs();renderGames();renderNotices();
 
 /* ===== 攻略（直链 SEO 静态页） ===== */
 var guideEl=document.getElementById('guideGrid');
