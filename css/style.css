@@ -105,6 +105,14 @@ ul { list-style: none; }
   color: #ffffff;
 }
 
+.nav-logo-img {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
 .nav-links {
   display: flex;
   gap: 4px;
