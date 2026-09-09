@@ -31,17 +31,29 @@ if (FORCE_ALL) {
     urls.push('https://' + SITE + '/#guide/' + m[1]);
   });
 } else {
-  // ===== 增量模式：用 git diff 找出本次提交新增的文章 ID =====
+  // ===== 增量模式：用 git diff 找出本次提交变动的页面 =====
   try {
-    const diff = execSync('git diff HEAD~1 HEAD -- data/articles.js', { encoding: 'utf8' });
-    // 只看新增行（+开头）里新增的 id，已有 id 也会在上下文行出现，但上下文行不带 +
-    const addedIds = [...diff.matchAll(/^\+\s+id:\s*(\d+)/gm)].map(m => parseInt(m[1], 10));
-    const newIds = [...new Set(addedIds)];
-    if (newIds.length === 0) {
-      console.log('⏭ 本次提交没有新增文章，跳过推送（节省配额）。');
+    const changed = execSync('git diff --name-only HEAD~1 HEAD', { encoding: 'utf8' })
+      .split('\n').map(s => s.trim()).filter(Boolean);
+
+    // 1) data/articles.js 有新增文章 → 推送对应 #/guide/ID 链接
+    if (changed.includes('data/articles.js')) {
+      const diff = execSync('git diff HEAD~1 HEAD -- data/articles.js', { encoding: 'utf8' });
+      const addedIds = [...diff.matchAll(/^\+\s+id:\s*(\d+)/gm)].map(m => parseInt(m[1], 10));
+      [...new Set(addedIds)].forEach(id => urls.push('https://' + SITE + '/#guide/' + id));
+    }
+
+    // 2) 首页 / 公告 / 收录入口 / 站点地图 有变动 → 推送首页，保证公告类更新也能被收录
+    if (['index.html', 'data/notices.js', 'data/games.js', 'admin.html', 'sitemap.xml']
+        .some(f => changed.includes(f))) {
+      urls.push('https://' + SITE + '/');
+    }
+
+    urls = [...new Set(urls)];
+    if (urls.length === 0) {
+      console.log('⏭ 本次提交没有新增文章或首页变动，跳过推送（节省配额）。');
       process.exit(0);
     }
-    urls = newIds.map(id => 'https://' + SITE + '/#guide/' + id);
   } catch (e) {
     console.log('⏭ 无法获取 diff（可能是首次提交），跳过推送。');
     process.exit(0);
