@@ -9,7 +9,8 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
 
-const SITE = 'fmbly.com';
+const SITE = 'fmbly.com'; // 用于拼接页面链接（https:// + SITE + /...）
+const PUSH_SITE = 'https://fmbly.com'; // 百度 API 的 site 参数，须与资源平台注册格式一致（带协议）
 const TOKEN = process.env.BAIDU_TOKEN;
 const FORCE_ALL = process.argv.includes('--all');
 
@@ -65,7 +66,7 @@ console.log('本次推送 ' + unique.length + ' 条链接到百度...');
 console.log(unique.join('\n'));
 
 // ===== 调用百度推送 API =====
-fetch('http://data.zz.baidu.com/urls?site=' + SITE + '&token=' + TOKEN, {
+fetch('http://data.zz.baidu.com/urls?site=' + PUSH_SITE + '&token=' + TOKEN, {
   method: 'POST',
   headers: { 'Content-Type': 'text/plain' },
   body: unique.join('\n')
@@ -75,14 +76,15 @@ fetch('http://data.zz.baidu.com/urls?site=' + SITE + '&token=' + TOKEN, {
     console.log('百度返回：' + text);
     if (text.includes('"success"')) {
       const m = text.match(/"success":\s*(\d+)/);
-      console.log('✅ 推送成功，百度已接收 ' + (m ? m[1] : unique.length) + ' 条链接');
+      const remain = (text.match(/"remain":\s*(\d+)/) || [])[1];
+      console.log('✅ 推送成功，百度已接收 ' + (m ? m[1] : unique.length) + ' 条链接，今日剩余配额 ' + (remain || '?'));
     } else if (text.includes('over quota')) {
       console.log('⚠️ 今日配额已用完，配额每日重置，明天发文时会自动正常推送。');
     } else if (text.includes('token') || text.includes('401')) {
       console.log('❌ token 无效，请检查 BAIDU_PUSH_TOKEN 密钥配置。');
       process.exit(1);
     } else {
-      console.log('⚠️ 百度返回异常，请检查站点是否为 ' + SITE);
+      console.log('⚠️ 百度返回异常，请检查 PUSH_SITE 是否为 https://fmbly.com');
     }
   })
   .catch(err => {
