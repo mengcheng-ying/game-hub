@@ -160,26 +160,27 @@
     .nav-links.open{transform:translateY(0);opacity:1;pointer-events:auto}
     .nav-links a{padding:13px 16px;font-size:.95rem;border-radius:10px;text-align:left;white-space:nowrap}
     .nav-cta{display:none}
-    .feat-grid{grid-template-columns:1fr 1fr;gap:12px}
-    .feat{padding:20px 16px}
-    .feat .ico{width:36px;height:36px;font-size:1.1rem;margin-bottom:12px;border-radius:10px}
-    .feat h3{font-size:.95rem}
-    .feat p{font-size:.78rem}
+    .feat-grid{grid-template-columns:repeat(4,1fr);gap:8px;max-width:560px;margin:0 auto}
+    .feat{padding:13px 6px;text-align:center}
+    .feat .ico{width:30px;height:30px;font-size:.95rem;margin:0 auto 8px;border-radius:9px}
+    .feat h3{font-size:.78rem}
+    .feat p,.feat .num{display:none}
     .hero{height:270px}
-    .card{width:84%;left:8%}
+    .card{width:62%;left:19%}
     .card .badge{top:8px;left:8px;font-size:.7rem;padding:3px 9px}
     .card-bd{padding:10px 14px 14px}
     .card-bd h3{font-size:1.05rem}
     .card-bd .sl{font-size:.8rem;margin:3px 0 10px}
     .card-bd .btns{gap:8px}
     .card-bd .btn{padding:8px 14px;font-size:.78rem}
-    .game-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+    .game-grid{grid-template-columns:repeat(3,1fr);gap:8px}
     .gcard .cv{aspect-ratio:16/10}
-    .gcard .bd{padding:9px 10px 11px}
-    .gcard .nm{font-size:.88rem}
-    .gcard .ds{font-size:.7rem;-webkit-line-clamp:1;margin-bottom:8px}
-    .gcard .heat{font-size:.66rem}
-    .gcard .go{padding:6px 10px;font-size:.74rem}
+    .gcard .bd{padding:7px 7px 9px}
+    .gcard .nm{font-size:.74rem;margin-bottom:3px}
+    .gcard .ds{font-size:.62rem;-webkit-line-clamp:1;margin-bottom:6px}
+    .gcard .heat{display:none}
+    .gcard .ft{justify-content:center}
+    .gcard .go{width:100%;text-align:center;padding:5px 0;font-size:.66rem}
     .guide-grid{grid-template-columns:1fr}
     .sec{padding:44px 0}
     .sec-head h2{font-size:1.5rem}
@@ -189,8 +190,10 @@
     .hero-arrow.next{right:4px}
   }
   @media(max-width:420px){
-    .game-grid{grid-template-columns:1fr 1fr;gap:8px}
-    .feat-grid{grid-template-columns:1fr}
+    .game-grid{grid-template-columns:repeat(3,1fr);gap:6px}
+    .feat-grid{grid-template-columns:repeat(4,1fr);gap:6px}
+    .feat .ico{width:28px;height:28px;font-size:.9rem}
+    .feat h3{font-size:.72rem}
     .hero{height:240px}
     .card-bd h3{font-size:.95rem}
     .card-bd .sl{font-size:.74rem;margin:2px 0 8px}
@@ -485,13 +488,24 @@ function buildSlides(){
 }
 function position(){
   var n=SLIDES.length,isMobile=window.innerWidth<=768;
+  var card=carEl.querySelector('.card');
+  var cw=card?card.offsetWidth:460;
+  // 步长：桌面固定300；手机端按卡宽衍生，让左右邻卡露出一角可滑动
+  var step=isMobile?Math.max(Math.round(cw*0.72),90):300;
   document.querySelectorAll('.card').forEach(function(el,i){
     var d=(i-cur+n)%n;if(d>n/2)d-=n;
-    var abs=Math.abs(d),isSide=abs===1&&!isMobile,isFar=abs>=2;
-    var dx=d*GAP;
-    var scale=isMobile?(d===0?1:0.9):(abs>=2?0.8:0.86);
-    var op=isMobile?(d===0?1:0):(abs>=2?0:(abs===1?0.5:1));
-    var zip=isMobile?(d===0?3:1):(abs>=2?0:(abs===1?2:3));
+    var abs=Math.abs(d);
+    var dx=d*step;
+    var scale=isMobile?(d===0?1:0.86):(abs>=2?0.8:0.86);
+    var op,zip;
+    if(isMobile){
+      // 手机端：中间卡全显，左右相邻卡露出半透明一角，更远隐藏
+      op=abs===0?1:(abs===1?0.5:0);
+      zip=abs===0?3:(abs===1?2:1);
+    } else {
+      op=abs>=2?0:(abs===1?0.5:1);
+      zip=abs>=2?0:(abs===1?2:3);
+    }
     el.style.zIndex=zip;
     el.style.pointerEvents=(d===0)?'auto':'none';
     el.style.opacity=op;
@@ -508,6 +522,18 @@ function restart(){clearInterval(timer);timer=setInterval(function(){goSlide(cur
 var heroEl=document.getElementById('hero');
 heroEl.addEventListener('mouseenter',function(){clearInterval(timer)});
 heroEl.addEventListener('mouseleave',function(){restart()});
+/* 移动端滑动手势：左右滑动切换轮播，垂直滚动页面不受影响 */
+var _tx=null,_ty=null;
+heroEl.addEventListener('touchstart',function(e){_tx=e.touches[0].clientX;_ty=e.touches[0].clientY;clearInterval(timer);},{passive:true});
+heroEl.addEventListener('touchmove',function(e){}, {passive:true});
+heroEl.addEventListener('touchend',function(e){
+  if(_tx==null)return;var _cx=e.changedTouches[0].clientX,_cy=e.changedTouches[0].clientY;
+  var _dx=_cx-_tx,_dy=_cy-_ty;
+  if(Math.abs(_dx)>36&&Math.abs(_dx)>Math.abs(_dy)){goSlide(cur+(_dx<0?1:-1));restart();}
+  else if(Math.abs(_dy)<12){restart();}
+  else{restart();}
+  _tx=null;_ty=null;
+},{passive:true});
 buildSlides();restart();
 window.addEventListener('resize',position);
 
