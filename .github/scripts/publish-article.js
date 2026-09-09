@@ -87,7 +87,7 @@ const entry = `
     title: ${JSON.stringify(title)},
     summary: ${JSON.stringify(summary)},
     content: ${JSON.stringify(html)},
-    author: "GAMEHUB攻略组",
+    author: "小梦攻略组",
     date: "${today}",
     category: ${JSON.stringify(category)},
     cover: ${JSON.stringify(cover)},

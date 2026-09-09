@@ -1,5 +1,5 @@
 /**
- * GAMEHUB 攻略预渲染构建脚本
+ * 小梦怀旧手游 攻略预渲染构建脚本
  * -------------------------------------------------
  * 目的：解决 SPA + hash 路由导致攻略页无法被搜索引擎收录的问题。
  * 为 data/articles.js 中的每一篇攻略生成独立的、服务端渲染完成的
@@ -60,7 +60,7 @@ fs.mkdirSync(OUT_DIR, { recursive: true });
 function renderHeader(currentTitle) {
   return `
 <header class="seo-topbar">
-  <a class="seo-brand" href="/">GAMEHUB</a>
+  <a class="seo-brand" href="/">小梦怀旧手游</a>
   <nav class="seo-nav">
     <a href="/#games">游戏大厅</a>
     <a href="/#guides">攻略中心</a>
@@ -73,7 +73,7 @@ function renderFooter() {
 <footer class="seo-footer">
   <a href="/">首页</a>
   <a href="/#guides">攻略中心</a>
-  <a href="https://fmbly.com" rel="noopener noreferrer">GAMEHUB 游戏整合站</a>
+  <a href="https://fmbly.com" rel="noopener noreferrer">小梦怀旧手游</a>
 </footer>`;
 }
 
@@ -119,7 +119,7 @@ articles.forEach((a, idx) => {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${esc(a.title)} - GAMEHUB 游戏攻略</title>
+<title>${esc(a.title)} - 小梦怀旧手游 游戏攻略</title>
 <meta name="description" content="${esc(a.summary || '')}">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="${esc(canonical)}">
@@ -127,7 +127,7 @@ articles.forEach((a, idx) => {
 <meta property="og:title" content="${esc(a.title)}">
 <meta property="og:description" content="${esc(a.summary || '')}">
 <meta property="og:url" content="${esc(canonical)}">
-<meta property="og:site_name" content="GAMEHUB 游戏整合站">
+<meta property="og:site_name" content="小梦怀旧手游">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
@@ -177,7 +177,7 @@ ${renderHeader(a.title)}
     ${a.category ? `<span class="seo-cat">${esc(a.category)}</span>` : ''}
     <h1 class="seo-title" itemprop="headline">${esc(a.title)}</h1>
     <div class="seo-meta">
-      <span>👤 ${esc(a.author || 'GAMEHUB攻略组')}</span>
+      <span>👤 ${esc(a.author || '小梦攻略组')}</span>
       <span>📅 <time itemprop="datePublished">${esc(a.date || '')}</time></span>
       <span>👁 ${(a.views || 0).toLocaleString()} 阅读</span>
     </div>

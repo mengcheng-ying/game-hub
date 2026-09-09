@@ -1,5 +1,5 @@
 /**
- * GAMEHUB 游戏整合站 - 主逻辑
+ * 小梦怀旧手游 - 主逻辑
  * 路由管理 | 页面渲染 | 交互处理
  */
 
@@ -146,22 +146,22 @@ function handleRoute() {
 }
 
 function updatePageTitle(route, id) {
-  let title = 'GAMEHUB - 游戏整合站';
+  let title = '小梦怀旧手游';
   let desc = '发现、下载、畅玩 —— 你的游戏资源中心';
 
-  if (route === 'games') { title = '游戏大厅 - GAMEHUB'; desc = '浏览全部怀旧游戏，按分类筛选经典游戏。'; }
+  if (route === 'games') { title = '游戏大厅 - 小梦怀旧手游'; desc = '浏览全部怀旧游戏，按分类筛选经典游戏。'; }
   else if (route === 'game-detail' && id) {
     const g = GAMES_DATA.find(x => x.id === id);
-    if (g) { title = g.name + ' - GAMEHUB'; desc = g.desc; }
+    if (g) { title = g.name + ' - 小梦怀旧手游'; desc = g.desc; }
   }
-  else if (route === 'guides') { title = '攻略中心 - GAMEHUB'; desc = '按游戏分类的游戏攻略 · 通关秘籍'; }
+  else if (route === 'guides') { title = '攻略中心 - 小梦怀旧手游'; desc = '按游戏分类的游戏攻略 · 通关秘籍'; }
   else if (route === 'guide-game' && id) {
     const g = GAMES_DATA.find(x => x.id === id);
-    if (g) { title = g.name + '攻略 - GAMEHUB'; desc = g.name + '游戏攻略合集，助你快速上手。'; }
+    if (g) { title = g.name + '攻略 - 小梦怀旧手游'; desc = g.name + '游戏攻略合集，助你快速上手。'; }
   }
   else if (route === 'guide-detail' && id) {
     const a = getAllArticles().find(x => x.id === id);
-    if (a) { title = a.title + ' - GAMEHUB'; desc = a.summary; }
+    if (a) { title = a.title + ' - 小梦怀旧手游'; desc = a.summary; }
   }
 
   document.title = title;

@@ -1,5 +1,5 @@
 /**
- * GAMEHUB 游戏链接表生成器
+ * 小梦怀旧手游 游戏链接表生成器
  * -----------------------------------------
  * 从 data/games.js 读取 GAMES_DATA，自动生成 LINKS.md。
  * LINKS.md 是给你查看和跟踪用的，所有修改仍以 data/games.js 为准。
@@ -27,7 +27,7 @@ const withPlatform = arr.filter(g => g.androidUrl || g.iosUrl);
 const withAll = arr.filter(g => g.androidUrl && g.iosUrl);
 
 let md = '';
-md += '# GAMEHUB 游戏链接表\n\n';
+md += '# 小梦怀旧手游 游戏链接表\n\n';
 md += '> 本文件由 `scripts/generate-links-doc.js` 自动生成，请勿手动编辑。\n';
 md += '> 修改游戏链接请编辑 `data/games.js`，然后运行 `node scripts/generate-links-doc.js` 重新生成此文件。\n\n';
 md += '**最后更新：** ' + new Date().toISOString().slice(0, 10) + '\n\n';

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>文章管理后台 - GAMEHUB</title>
+  <title>文章管理后台 - 小梦怀旧手游</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -199,7 +199,7 @@
 </head>
 <body>
   <aside class="sidebar">
-    <div class="sidebar-logo">GAMEHUB 后台</div>
+    <div class="sidebar-logo">小梦怀旧手游 后台</div>
     <nav class="sidebar-nav">
       <a href="#" class="active" data-tab="list">📋 文章列表</a>
       <a href="#" data-tab="new">➕ 新建文章</a>
@@ -253,7 +253,7 @@
         <div class="form-row">
           <div class="form-group">
             <label>作者</label>
-            <input type="text" id="article-author" value="GAMEHUB攻略组">
+            <input type="text" id="article-author" value="小梦攻略组">
           </div>
           <div class="form-group">
             <label>日期</label>
@@ -439,7 +439,7 @@
       document.getElementById('article-title').value = '';
       document.getElementById('article-game').value = '';
       document.getElementById('article-category').value = '攻略';
-      document.getElementById('article-author').value = 'GAMEHUB攻略组';
+      document.getElementById('article-author').value = '小梦攻略组';
       document.getElementById('article-date').value = new Date().toISOString().split('T')[0];
       document.getElementById('article-cover').value = '';
       document.getElementById('article-summary').value = '';
@@ -469,7 +469,7 @@
         gameId: parseInt(document.getElementById('article-game').value) || null,
         title,
         category: document.getElementById('article-category').value,
-        author: document.getElementById('article-author').value.trim() || 'GAMEHUB攻略组',
+        author: document.getElementById('article-author').value.trim() || '小梦攻略组',
         date: document.getElementById('article-date').value || new Date().toISOString().split('T')[0],
         cover: document.getElementById('article-cover').value.trim() || 'assets/images/longzhigu_cover.jpg',
         summary,
