@@ -972,15 +972,15 @@ main {
   .nav-links a { font-size: 0.85rem; padding: 8px 10px; }
   .nav-links a.active::after { left: 10px; right: 10px; }
 
-  .hero { padding: 26px 12px 20px; }
+  .hero { padding: 18px 10px 14px; }
   .hero-title { font-size: 1.5rem; letter-spacing: 1.5px; }
   .hero-subtitle { font-size: 0.8rem; margin-bottom: 22px; }
 
   .section-title { font-size: 1.2rem; }
 
-  .game-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .game-card-name { font-size: 0.85rem; }
-  .filter-btn { font-size: 0.75rem; padding: 5px 12px; }
+  .game-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .game-card-name { font-size: 0.82rem; }
+  .filter-btn { font-size: 0.72rem; padding: 5px 10px; }
 
   .article-card { flex-direction: column; gap: 12px; padding: 16px 18px; }
   .article-badge { align-self: flex-start; }
