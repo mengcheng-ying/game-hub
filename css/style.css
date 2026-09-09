@@ -978,7 +978,7 @@ main {
 
   .section-title { font-size: 1.2rem; }
 
-  .game-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .game-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .game-card-name { font-size: 0.82rem; }
   .filter-btn { font-size: 0.72rem; padding: 5px 10px; }
 
