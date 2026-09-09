@@ -106,8 +106,10 @@
   .gcard .cv .badge{position:absolute;top:10px;left:10px;padding:3px 11px;border-radius:99px;background:rgba(0,0,0,.62);backdrop-filter:blur(4px);font-size:.82rem;color:#ffc940;font-weight:700;border:1px solid rgba(255,201,64,.5);letter-spacing:.5px}
   .gcard .bd{padding:14px 14px 16px;display:flex;flex-direction:column;flex:1}
   .gcard .nm{font-size:1rem;font-weight:800;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .gcard .ds{font-size:.78rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:12px;flex:1}
-  .gcard .ft{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:nowrap}
+  .gcard .meta{display:flex;align-items:center;gap:6px;margin:0 0 10px;flex-wrap:nowrap;white-space:nowrap;overflow:hidden}
+  .gcard .score{font-size:.74rem;color:#ffc940;font-weight:700;white-space:nowrap;flex-shrink:0}
+  .gcard .plat{padding:1px 8px;border-radius:99px;background:rgba(61,123,255,.16);color:var(--accent2);border:1px solid rgba(61,123,255,.3);font-size:.62rem;font-weight:600;white-space:nowrap;flex-shrink:0}
+  .gcard .ft{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:nowrap;margin-top:auto}
   .gcard .heat{font-size:.74rem;color:var(--gold);display:flex;align-items:center;gap:4px;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
   .gcard .go{padding:7px 16px;border-radius:99px;background:rgba(61,123,255,.14);color:var(--accent2);font-size:.8rem;font-weight:700;transition:.2s;border:1px solid rgba(61,123,255,.3);white-space:nowrap;flex-shrink:0}
   .gcard:hover .go{background:var(--grad);color:#fff;border-color:transparent}
@@ -150,6 +152,9 @@
     .feat-grid{grid-template-columns:repeat(4,1fr)}
   }
   @media(max-width:768px){
+    .tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;gap:8px;margin-bottom:20px;padding:2px 2px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .tabs::-webkit-scrollbar{display:none}
+    .tab{flex:0 0 auto;white-space:nowrap;padding:7px 14px;font-size:.76rem;min-height:auto}
     .nav-toggle{display:flex;align-items:center;justify-content:center;width:40px;height:40px;margin-left:auto;background:none;border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:1.3rem;line-height:1;cursor:pointer;order:99}
     .nav-links{
       position:fixed;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;
@@ -177,7 +182,9 @@
     .gcard .cv{aspect-ratio:16/10}
     .gcard .bd{padding:7px 7px 9px}
     .gcard .nm{font-size:.74rem;margin-bottom:3px}
-    .gcard .ds{font-size:.62rem;-webkit-line-clamp:1;margin-bottom:6px}
+    .gcard .meta{gap:4px;margin:0 0 7px}
+    .gcard .score{font-size:.58rem}
+    .gcard .plat{font-size:.52rem;padding:0 5px}
     .gcard .heat{display:none}
     .gcard .ft{justify-content:center}
     .gcard .go{width:100%;text-align:center;padding:5px 0;font-size:.66rem}
@@ -552,10 +559,10 @@ function renderGames(){
     var hasIos=g.iosUrl&&g.iosUrl!=='';
     var hasPlatform=hasAndroid||hasIos;
     return '<div class="gcard" onclick="openGameModal('+g.id+')">'+
-      '<div class="cv"><img src="'+g.cover+'" alt="'+esc(g.name)+'" loading="lazy"><span class="badge">★ '+esc(g.sc)+'</span>'+
-      (hasPlatform?'<span class="badge-plat" title="支持安卓/iOS分版本下载">📱 双端</span>':'')+'</div>'+
+      '<div class="cv"><img src="'+g.cover+'" alt="'+esc(g.name)+'" loading="lazy"></div>'+
       '<div class="bd"><div class="nm">'+esc(g.name)+'</div>'+
-      '<div class="ds">经典正版手游</div>'+
+      '<div class="meta"><span class="score">★ '+esc(g.sc)+'</span>'+
+      (hasPlatform?'<span class="plat" title="支持安卓/iOS分版本下载">📱 双端</span>':'')+'</div>'+
       '<div class="ft"><span class="heat">🔥 '+fmtHeat(g.heat)+'</span><span class="go">查看下载 ↗</span></div>'+
       '</div></div>';
   }).join('');
