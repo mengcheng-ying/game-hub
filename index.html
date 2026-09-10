@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="小梦怀旧手游">
 <meta property="og:image" content="https://fmbly.com/assets/images/longzhigu_cover.jpg">
 <title>小梦怀旧手游-热血江湖龙之谷武林外传怀旧服下载攻略</title>
-<link rel="stylesheet" href="css/style.css?v=20260910b">
+<link rel="stylesheet" href="css/style.css?v=20260910c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
@@ -225,6 +225,10 @@
 .gm-btn{flex:1;min-width:140px;padding:12px 18px;border-radius:10px;font-size:.95rem;font-weight:600;text-align:center;cursor:pointer;border:1px solid transparent;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
 .gm-btn-primary{background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 100%);color:#fff;box-shadow:0 4px 14px rgba(99,102,241,.35)}
 .gm-btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(99,102,241,.5)}
+.gm-btn-android{background:linear-gradient(135deg,#10b981 0%,#06b6d4 100%);color:#fff;box-shadow:0 4px 14px rgba(16,185,129,.35)}
+.gm-btn-android:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(16,185,129,.5)}
+.gm-btn-ios{background:linear-gradient(135deg,#a855f7 0%,#ec4899 100%);color:#fff;box-shadow:0 4px 14px rgba(168,85,247,.35)}
+.gm-btn-ios:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(168,85,247,.5)}
 .gm-btn-ghost{background:rgba(255,255,255,.06);color:#e5e9f5;border-color:rgba(255,255,255,.12)}
 .gm-btn-ghost:hover{background:rgba(255,255,255,.12)}
 .gm-dropdown{position:relative;flex:1;min-width:140px}
@@ -374,14 +378,9 @@
     </div>
     <div id="gmDesc" class="gm-desc"></div>
     <div class="gm-actions">
-      <a id="gmEnter" class="gm-btn gm-btn-primary" href="#" target="_blank" rel="noopener noreferrer">🎮 进入游戏</a>
-      <div class="gm-dropdown" id="gmDropdown">
-        <button type="button" class="gm-btn gm-btn-ghost" onclick="toggleDownloadMenu(event)">📱 选择下载版本 ▾</button>
-        <div class="gm-menu" id="gmMenu">
-          <a id="gmAndroid" class="gm-menu-item" href="#" target="_blank" rel="noopener noreferrer">🤖 安卓下载</a>
-          <a id="gmIos" class="gm-menu-item" href="#" target="_blank" rel="noopener noreferrer">🍎 苹果下载</a>
-        </div>
-      </div>
+      <a id="gmAndroid" class="gm-btn gm-btn-android" href="#" target="_blank" rel="noopener noreferrer">🤖 安卓下载</a>
+      <a id="gmIos" class="gm-btn gm-btn-ios" href="#" target="_blank" rel="noopener noreferrer">🍎 苹果下载</a>
+      <a id="gmEnter" class="gm-btn gm-btn-ghost" href="#" target="_blank" rel="noopener noreferrer">访问官网 ↗</a>
     </div>
   </div>
 </div>
@@ -590,11 +589,11 @@ function openGameModal(id){
   var desc=(g.desc||g.ds||'').replace(/^《[^》]+》/,function(s){return s;});
   if(desc.length>200)desc=desc.slice(0,200)+'…';
   document.getElementById('gmDesc').textContent=desc;
-  // 主按钮 - 永远保留，使用通用 url
+  // 主按钮 - 访问官网（次要）
   var enterBtn=document.getElementById('gmEnter');
   enterBtn.href=g.url;
-  enterBtn.textContent='🎮 进入游戏';
-  // 安卓/苹果下拉
+  enterBtn.textContent='访问官网 ↗';
+  // 安卓/苹果下载 - 直接高亮展示
   var androidA=document.getElementById('gmAndroid');
   var iosA=document.getElementById('gmIos');
   var hasAndroid=g.androidUrl&&g.androidUrl!=='';
@@ -602,10 +601,10 @@ function openGameModal(id){
   androidA.href=hasAndroid?g.androidUrl:g.url;
   iosA.href=hasIos?g.iosUrl:g.url;
   // 如果两边都没有真正的分平台链接，提示
-  androidA.textContent=hasAndroid?'🤖 安卓下载':'🤖 安卓下载（暂用通用链接）';
-  iosA.textContent=hasIos?'🍎 苹果下载':'🍎 苹果下载（暂用通用链接）';
-  // 关闭下拉
-  document.getElementById('gmMenu').classList.remove('open');
+  androidA.textContent=hasAndroid?'🤖 安卓下载':'🤖 安卓下载';
+  iosA.textContent=hasIos?'🍎 苹果下载':'🍎 苹果下载';
+  if(!hasAndroid){androidA.style.opacity='.75';}else{androidA.style.opacity='1';}
+  if(!hasIos){iosA.style.opacity='.75';}else{iosA.style.opacity='1';}
   m.classList.add('open');
   document.body.style.overflow='hidden';
 }
@@ -613,14 +612,6 @@ function closeGameModal(){
   document.getElementById('gameModal').classList.remove('open');
   document.body.style.overflow='';
 }
-function toggleDownloadMenu(e){
-  if(e)e.stopPropagation();
-  document.getElementById('gmMenu').classList.toggle('open');
-}
-document.addEventListener('click',function(e){
-  var dd=document.getElementById('gmDropdown');
-  if(dd&&!dd.contains(e.target))document.getElementById('gmMenu').classList.remove('open');
-});
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape')closeGameModal();
 });
