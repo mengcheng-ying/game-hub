@@ -1,6 +1,8 @@
 name: 百度链接自动推送
 
 on:
+  schedule:
+    - cron: '0 7 * * *'   # 每天北京时间 15:00（UTC 07:00）定时全量推送
   push:
     branches: [main]
   workflow_dispatch:
@@ -36,6 +38,9 @@ jobs:
             else
               node .github/scripts/baidu-push.js
             fi
+          elif [ "${{ github.event_name }}" = "schedule" ]; then
+            # 每日 15:00 定时全量推送，把当前全部链接提交给百度
+            node .github/scripts/baidu-push.js --all
           else
             node .github/scripts/baidu-push.js
           fi
