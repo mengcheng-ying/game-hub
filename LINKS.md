@@ -19,7 +19,7 @@
 | id | 热度 | 游戏名 | 通用链接 | 安卓链接 | 苹果链接 |
 |----|------|--------|----------|----------|----------|
 | 1 | 930000 | 龙之谷启程 | https://sdkn-ldy.zhangyu39.com/?app_id=7259&promote_id=1778 | https://sdkn-ldy.zhangyu39.com/?app_id=7485&promote_id=1778 | https://sdkn-ldy.zhangyu39.com/?app_id=7259&promote_id=1778 |
-| 45 | 925000 | 热血江湖2.0 | https://rxjh2.fmbly.com/ | https://res-engine-rxyqcy.cyltc.com/package/rx/4510454/promote/4510454_4515285_c866021f3ef54b8bdece6de6a4ae7951.apk?v=1788665710 | https://uf5.uwanting.com/gr7bt2 |
+| 45 | 925000 | 热血江湖2.0 | https://jh.fmbly.com/ | https://res-engine-rxyqcy.cyltc.com/package/rx/4510454/promote/4510454_4515285_c866021f3ef54b8bdece6de6a4ae7951.apk?v=1788665710 | https://uf5.uwanting.com/gr7bt2 |
 | 21 | 915000 | 武林外传：十年之约 | https://wulin.fmbly.com/ | https://sdkn-ldy.zhangyu39.com/?app_id=7631&promote_id=1778 | https://sdkn-ldy.zhangyu39.com/?app_id=7606&promote_id=1778 |
 | 2 | 880000 | 墨香情 | https://sdkn-ldy.zhangyu39.com/?app_id=7032&promote_id=1778 | https://sdkn-ldy.zhangyu39.com/?app_id=7408&promote_id=1778 | https://sdkn-ldy.zhangyu39.com/?app_id=7032&promote_id=1778 |
 | 6 | 860000 | 荣耀出征卡点服 | https://229663.youxin75.com/qudao.php?s=/Download/f/WzUwODgsNTA4NywyMjk2NjNd | `⚠️ 未提供` | `⚠️ 未提供` |
